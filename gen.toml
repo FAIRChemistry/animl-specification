@@ -1,0 +1,9 @@
+[meta]
+name = "AnIML"
+description = "This is a code and schema generator for AnIML."
+paths = ["specifications/animl.md"]
+
+[generate]
+json-schema = { out = "schemes/animl.json", root = "AnIML" }
+mk-docs = { out = "docs/index.md", nav = "false" }
+typescript = { out = "typescript/src/index.ts" }
