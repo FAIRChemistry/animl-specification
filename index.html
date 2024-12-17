@@ -1,0 +1,2015 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Analytical Information Markup Language</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Open Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="custom" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#analytical-information-markup-language" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Analytical Information Markup Language" class="md-header__button md-logo" aria-label="Analytical Information Markup Language" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Analytical Information Markup Language
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Analytical Information Markup Language
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="custom" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FAIRChemistry/animl-specification" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+    
+  
+  Analytical Information Markup Language
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Analytical Information Markup Language" class="md-nav__button md-logo" aria-label="Analytical Information Markup Language" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Analytical Information Markup Language
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FAIRChemistry/animl-specification" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Analytical Information Markup Language
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Analytical Information Markup Language
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#animl" class="md-nav__link">
+    <span class="md-ellipsis">
+      AnIML
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampleset" class="md-nav__link">
+    <span class="md-ellipsis">
+      SampleSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audittrailentryset" class="md-nav__link">
+    <span class="md-ellipsis">
+      AuditTrailEntrySet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimentstepset" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExperimentStepSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audittrailentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      AuditTrailEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimentstep" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExperimentStep
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diff
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#author" class="md-nav__link">
+    <span class="md-ellipsis">
+      Author
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagset" class="md-nav__link">
+    <span class="md-ellipsis">
+      TagSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      Result
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technique" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technique
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#category" class="md-nav__link">
+    <span class="md-ellipsis">
+      Category
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device" class="md-nav__link">
+    <span class="md-ellipsis">
+      Device
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extension
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimentdatareferenceset" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExperimentDataReferenceSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parentdatapointreferenceset" class="md-nav__link">
+    <span class="md-ellipsis">
+      ParentDataPointReferenceSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#samplereferenceset" class="md-nav__link">
+    <span class="md-ellipsis">
+      SampleReferenceSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seriesset" class="md-nav__link">
+    <span class="md-ellipsis">
+      SeriesSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimentdatareference" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExperimentDataReference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimentdatabulkreference" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExperimentDataBulkReference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parentdatapointreference" class="md-nav__link">
+    <span class="md-ellipsis">
+      ParentDataPointReference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#samplereference" class="md-nav__link">
+    <span class="md-ellipsis">
+      SampleReference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampleinheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      SampleInheritance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#series" class="md-nav__link">
+    <span class="md-ellipsis">
+      Series
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siunit" class="md-nav__link">
+    <span class="md-ellipsis">
+      SIUnit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endvalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      EndValue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#individualvalueset" class="md-nav__link">
+    <span class="md-ellipsis">
+      IndividualValueSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoincrementedvalueset" class="md-nav__link">
+    <span class="md-ellipsis">
+      AutoIncrementedValueSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encodedvalueset" class="md-nav__link">
+    <span class="md-ellipsis">
+      EncodedValueSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startvalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      StartValue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#increment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Increment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#animl" class="md-nav__link">
+    <span class="md-ellipsis">
+      AnIML
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampleset" class="md-nav__link">
+    <span class="md-ellipsis">
+      SampleSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audittrailentryset" class="md-nav__link">
+    <span class="md-ellipsis">
+      AuditTrailEntrySet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimentstepset" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExperimentStepSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audittrailentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      AuditTrailEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimentstep" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExperimentStep
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diff
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#author" class="md-nav__link">
+    <span class="md-ellipsis">
+      Author
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagset" class="md-nav__link">
+    <span class="md-ellipsis">
+      TagSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      Result
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technique" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technique
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#category" class="md-nav__link">
+    <span class="md-ellipsis">
+      Category
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device" class="md-nav__link">
+    <span class="md-ellipsis">
+      Device
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extension
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimentdatareferenceset" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExperimentDataReferenceSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parentdatapointreferenceset" class="md-nav__link">
+    <span class="md-ellipsis">
+      ParentDataPointReferenceSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#samplereferenceset" class="md-nav__link">
+    <span class="md-ellipsis">
+      SampleReferenceSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seriesset" class="md-nav__link">
+    <span class="md-ellipsis">
+      SeriesSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimentdatareference" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExperimentDataReference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimentdatabulkreference" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExperimentDataBulkReference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parentdatapointreference" class="md-nav__link">
+    <span class="md-ellipsis">
+      ParentDataPointReference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#samplereference" class="md-nav__link">
+    <span class="md-ellipsis">
+      SampleReference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampleinheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      SampleInheritance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#series" class="md-nav__link">
+    <span class="md-ellipsis">
+      Series
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siunit" class="md-nav__link">
+    <span class="md-ellipsis">
+      SIUnit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endvalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      EndValue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#individualvalueset" class="md-nav__link">
+    <span class="md-ellipsis">
+      IndividualValueSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoincrementedvalueset" class="md-nav__link">
+    <span class="md-ellipsis">
+      AutoIncrementedValueSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encodedvalueset" class="md-nav__link">
+    <span class="md-ellipsis">
+      EncodedValueSet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startvalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      StartValue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#increment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Increment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/FAIRChemistry/animl-specification/edit/main/docs/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="analytical-information-markup-language">Analytical Information Markup Language<a class="headerlink" href="#analytical-information-markup-language" title="Permanent link">&para;</a></h1>
+<p>This page provides comprehensive information about the structure and components of the data model, including detailed descriptions of the types and their properties, information on enumerations, and an overview of the ontologies used and their associated prefixes. Below, you will find a graph that visually represents the overall structure of the data model.</p>
+<details class="quote">
+<summary>Graph</summary>
+<pre class="mermaid"><code>flowchart TB
+    animl(AnIML)
+    sampleset(SampleSet)
+    audittrailentryset(AuditTrailEntrySet)
+    experimentstepset(ExperimentStepSet)
+    sample(Sample)
+    audittrailentry(AuditTrailEntry)
+    template(Template)
+    experimentstep(ExperimentStep)
+    diff(Diff)
+    author(Author)
+    software(Software)
+    tagset(TagSet)
+    result(Result)
+    method(Method)
+    technique(Technique)
+    infrastructure(Infrastructure)
+    tag(Tag)
+    category(Category)
+    device(Device)
+    extension(Extension)
+    experimentdatareferenceset(ExperimentDataReferenceSet)
+    parentdatapointreferenceset(ParentDataPointReferenceSet)
+    samplereferenceset(SampleReferenceSet)
+    seriesset(SeriesSet)
+    parameter(Parameter)
+    experimentdatareference(ExperimentDataReference)
+    experimentdatabulkreference(ExperimentDataBulkReference)
+    parentdatapointreference(ParentDataPointReference)
+    samplereference(SampleReference)
+    sampleinheritance(SampleInheritance)
+    series(Series)
+    siunit(SIUnit)
+    endvalue(EndValue)
+    individualvalueset(IndividualValueSet)
+    unit(Unit)
+    autoincrementedvalueset(AutoIncrementedValueSet)
+    encodedvalueset(EncodedValueSet)
+    startvalue(StartValue)
+    increment(Increment)
+    animl(AnIML) --&gt; sampleset(SampleSet)
+    animl(AnIML) --&gt; experimentstepset(ExperimentStepSet)
+    animl(AnIML) --&gt; audittrailentryset(AuditTrailEntrySet)
+    sampleset(SampleSet) --&gt; sample(Sample)
+    audittrailentryset(AuditTrailEntrySet) --&gt; audittrailentry(AuditTrailEntry)
+    experimentstepset(ExperimentStepSet) --&gt; experimentstep(ExperimentStep)
+    experimentstepset(ExperimentStepSet) --&gt; template(Template)
+    sample(Sample) --&gt; tagset(TagSet)
+    sample(Sample) --&gt; category(Category)
+    audittrailentry(AuditTrailEntry) --&gt; author(Author)
+    audittrailentry(AuditTrailEntry) --&gt; software(Software)
+    audittrailentry(AuditTrailEntry) --&gt; diff(Diff)
+    template(Template) --&gt; tagset(TagSet)
+    template(Template) --&gt; technique(Technique)
+    template(Template) --&gt; infrastructure(Infrastructure)
+    template(Template) --&gt; method(Method)
+    template(Template) --&gt; result(Result)
+    experimentstep(ExperimentStep) --&gt; tagset(TagSet)
+    experimentstep(ExperimentStep) --&gt; technique(Technique)
+    experimentstep(ExperimentStep) --&gt; infrastructure(Infrastructure)
+    experimentstep(ExperimentStep) --&gt; method(Method)
+    experimentstep(ExperimentStep) --&gt; result(Result)
+    tagset(TagSet) --&gt; tag(Tag)
+    result(Result) --&gt; seriesset(SeriesSet)
+    result(Result) --&gt; category(Category)
+    method(Method) --&gt; author(Author)
+    method(Method) --&gt; device(Device)
+    method(Method) --&gt; software(Software)
+    method(Method) --&gt; category(Category)
+    technique(Technique) --&gt; extension(Extension)
+    infrastructure(Infrastructure) --&gt; samplereferenceset(SampleReferenceSet)
+    infrastructure(Infrastructure) --&gt; parentdatapointreferenceset(ParentDataPointReferenceSet)
+    infrastructure(Infrastructure) --&gt; experimentdatareferenceset(ExperimentDataReferenceSet)
+    category(Category) --&gt; parameter(Parameter)
+    category(Category) --&gt; seriesset(SeriesSet)
+    category(Category) --&gt; category(Category)
+    experimentdatareferenceset(ExperimentDataReferenceSet) --&gt; experimentdatareference(ExperimentDataReference)
+    experimentdatareferenceset(ExperimentDataReferenceSet) --&gt; experimentdatabulkreference(ExperimentDataBulkReference)
+    parentdatapointreferenceset(ParentDataPointReferenceSet) --&gt; parentdatapointreference(ParentDataPointReference)
+    samplereferenceset(SampleReferenceSet) --&gt; samplereference(SampleReference)
+    samplereferenceset(SampleReferenceSet) --&gt; sampleinheritance(SampleInheritance)
+    seriesset(SeriesSet) --&gt; series(Series)
+    parameter(Parameter) --&gt; unit(Unit)
+    parentdatapointreference(ParentDataPointReference) --&gt; startvalue(StartValue)
+    parentdatapointreference(ParentDataPointReference) --&gt; endvalue(EndValue)
+    series(Series) --&gt; individualvalueset(IndividualValueSet)
+    series(Series) --&gt; encodedvalueset(EncodedValueSet)
+    series(Series) --&gt; autoincrementedvalueset(AutoIncrementedValueSet)
+    series(Series) --&gt; unit(Unit)
+    unit(Unit) --&gt; siunit(SIUnit)
+    autoincrementedvalueset(AutoIncrementedValueSet) --&gt; startvalue(StartValue)
+    autoincrementedvalueset(AutoIncrementedValueSet) --&gt; increment(Increment)
+
+    click animl "#animl" "Go to AnIML"
+    click sampleset "#sampleset" "Go to SampleSet"
+    click audittrailentryset "#audittrailentryset" "Go to AuditTrailEntrySet"
+    click experimentstepset "#experimentstepset" "Go to ExperimentStepSet"
+    click sample "#sample" "Go to Sample"
+    click audittrailentry "#audittrailentry" "Go to AuditTrailEntry"
+    click template "#template" "Go to Template"
+    click experimentstep "#experimentstep" "Go to ExperimentStep"
+    click diff "#diff" "Go to Diff"
+    click author "#author" "Go to Author"
+    click software "#software" "Go to Software"
+    click tagset "#tagset" "Go to TagSet"
+    click result "#result" "Go to Result"
+    click method "#method" "Go to Method"
+    click technique "#technique" "Go to Technique"
+    click infrastructure "#infrastructure" "Go to Infrastructure"
+    click tag "#tag" "Go to Tag"
+    click category "#category" "Go to Category"
+    click device "#device" "Go to Device"
+    click extension "#extension" "Go to Extension"
+    click experimentdatareferenceset "#experimentdatareferenceset" "Go to ExperimentDataReferenceSet"
+    click parentdatapointreferenceset "#parentdatapointreferenceset" "Go to ParentDataPointReferenceSet"
+    click samplereferenceset "#samplereferenceset" "Go to SampleReferenceSet"
+    click seriesset "#seriesset" "Go to SeriesSet"
+    click parameter "#parameter" "Go to Parameter"
+    click experimentdatareference "#experimentdatareference" "Go to ExperimentDataReference"
+    click experimentdatabulkreference "#experimentdatabulkreference" "Go to ExperimentDataBulkReference"
+    click parentdatapointreference "#parentdatapointreference" "Go to ParentDataPointReference"
+    click samplereference "#samplereference" "Go to SampleReference"
+    click sampleinheritance "#sampleinheritance" "Go to SampleInheritance"
+    click series "#series" "Go to Series"
+    click siunit "#siunit" "Go to SIUnit"
+    click endvalue "#endvalue" "Go to EndValue"
+    click individualvalueset "#individualvalueset" "Go to IndividualValueSet"
+    click unit "#unit" "Go to Unit"
+    click autoincrementedvalueset "#autoincrementedvalueset" "Go to AutoIncrementedValueSet"
+    click encodedvalueset "#encodedvalueset" "Go to EncodedValueSet"
+    click startvalue "#startvalue" "Go to StartValue"
+    click increment "#increment" "Go to Increment"</code></pre>
+</details>
+<h2 id="types">Types<a class="headerlink" href="#types" title="Permanent link">&para;</a></h2>
+<h3 id="animl">AnIML<a class="headerlink" href="#animl" title="Permanent link">&para;</a></h3>
+<p>ComplexType for the root element of an AnIML document. The AnIML element serves as the container for all data and metadata in an analytical data file. It contains version information, sample definitions, experimental data organized in steps, and an audit trail of changes made to the document.</p>
+<p><strong>version</strong>* <code>string</code></p>
+<ul>
+<li>
+<p>Version number of the AnIML Core Schema used in this document. Must be '0.90'.</p>
+</li>
+<li>
+<p><code>Default</code>: 0.9</p>
+</li>
+</ul>
+<p><strong>sample_set</strong> <a href="#sampleset"><code>SampleSet</code></a></p>
+<ul>
+<li>Container for Samples used in this AnIML document.</li>
+</ul>
+<p><strong>experiment_step_set</strong> <a href="#experimentstepset"><code>ExperimentStepSet</code></a></p>
+<ul>
+<li>Container for multiple ExperimentSteps that describe the process and results.</li>
+</ul>
+<p><strong>audit_trail_entry_set</strong> <a href="#audittrailentryset"><code>AuditTrailEntrySet</code></a></p>
+<ul>
+<li>Container for audit trail entries describing changes to this document.</li>
+</ul>
+<hr />
+<h3 id="sampleset">SampleSet<a class="headerlink" href="#sampleset" title="Permanent link">&para;</a></h3>
+<p>Container for Samples used in this AnIML document. The SampleSet element acts as a registry of all samples referenced throughout the document, allowing samples to be defined once and referenced multiple times. This centralized approach ensures consistency in sample identification and properties across the entire analytical workflow.</p>
+<p><strong>sample</strong> <a href="#sample"><code>list[Sample]</code></a></p>
+<ul>
+<li>Individual Sample, referenced from other parts of this AnIML document.</li>
+</ul>
+<hr />
+<h3 id="audittrailentryset">AuditTrailEntrySet<a class="headerlink" href="#audittrailentryset" title="Permanent link">&para;</a></h3>
+<p>Container for audit trail entries describing changes to this document. The AuditTrailEntrySet maintains a chronological record of all modifications made to the AnIML document, including who made the changes, when they were made, and what specific changes occurred. This provides full traceability and compliance with data integrity requirements.</p>
+<p><strong>audit_trail_entry</strong> <a href="#audittrailentry"><code>list[AuditTrailEntry]</code></a></p>
+<ul>
+<li>Describes a set of changes made to the particular AnIML document by one user at a given time.</li>
+</ul>
+<hr />
+<h3 id="experimentstepset">ExperimentStepSet<a class="headerlink" href="#experimentstepset" title="Permanent link">&para;</a></h3>
+<p>Container for multiple ExperimentSteps that describe the process and results. The ExperimentStepSet organizes the analytical workflow into discrete steps, where each step represents the application of a specific analytical technique. This structure allows for clear documentation of complex, multi-step analytical procedures while maintaining relationships between steps.</p>
+<p><strong>experiment_step</strong> <a href="#experimentstep"><code>list[ExperimentStep]</code></a></p>
+<ul>
+<li>Container that documents a step in an experiment. Use one ExperimentStep per application of a Technique.</li>
+</ul>
+<p><strong>template</strong> <a href="#template"><code>list[Template]</code></a></p>
+<ul>
+<li>Represents a template for an ExperimentStep.</li>
+</ul>
+<hr />
+<h3 id="sample">Sample<a class="headerlink" href="#sample" title="Permanent link">&para;</a></h3>
+<p>Individual Sample, referenced from other parts of this AnIML document. The Sample element provides comprehensive documentation of a physical or virtual sample, including its identification, physical location, containment hierarchy, and any relevant metadata. It supports both simple samples and complex container-based sample organizations like well plates.</p>
+<p><strong>name</strong>* <code>string</code></p>
+<ul>
+<li>Plain-text name of this item.</li>
+</ul>
+<p><strong>sample_id</strong>* <code>string</code></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>barcode</strong> <code>string</code></p>
+<ul>
+<li>Value of barcode label that is attached to sample container.</li>
+</ul>
+<p><strong>comment</strong> <code>string</code></p>
+<ul>
+<li>Unstructured text comment to further describe the Sample.</li>
+</ul>
+<p><strong>derived</strong> <code>string</code></p>
+<ul>
+<li>Indicates whether this is a derived Sample. A derived Sample is a Sample that has been created by applying a Technique. (Sub-Sampling, Processing, ...)</li>
+</ul>
+<p><strong>container_type</strong> <code>string</code></p>
+<ul>
+<li>Whether this sample is also a container for other samples. Set to 'simple' if not.</li>
+</ul>
+<p><strong>container_id</strong> <code>string</code></p>
+<ul>
+<li>Sample ID of container in which this sample is located.</li>
+</ul>
+<p><strong>location_in_container</strong> <code>string</code></p>
+<ul>
+<li>Coordinates of this sample within the enclosing container. In case of microplates or trays, the row is identified by letters and the column is identified by numbers (1-based) while in landscape orientation. Examples: A10 = 1st row, 10th column, Z1 = 26th row, 1st column, AB2 = 28th row, 2nd column.</li>
+</ul>
+<p><strong>source_data_location</strong> <code>string</code></p>
+<ul>
+<li>Points to the original data source. May be a file name, uri, database ID, etc.</li>
+</ul>
+<p><strong>tag_set</strong> <a href="#tagset"><code>TagSet</code></a></p>
+<ul>
+<li>Set of Tag elements.</li>
+</ul>
+<p><strong>category</strong> <a href="#category"><code>list[Category]</code></a></p>
+<ul>
+<li>Defines a category of Parameters and SeriesSets. Used to model hierarchies.</li>
+</ul>
+<hr />
+<h3 id="audittrailentry">AuditTrailEntry<a class="headerlink" href="#audittrailentry" title="Permanent link">&para;</a></h3>
+<p>Describes a set of changes made to the particular AnIML document by one user at a given time. The AuditTrailEntry element captures the complete context of a document modification event, including who made the change, when it occurred, what software was used, and both human-readable and machine-readable descriptions of the changes. This enables full traceability of document history.</p>
+<p><strong>timestamp</strong>* <code>string</code></p>
+<ul>
+<li>Date and time of modification.</li>
+</ul>
+<p><strong>author</strong>* <a href="#author"><code>Author</code></a></p>
+<ul>
+<li>Information about a person, a device or a piece of software authoring AnIML files.</li>
+</ul>
+<p><strong>action</strong>* <code>string</code></p>
+<ul>
+<li>Type of change made (created, modified, ...)</li>
+</ul>
+<p><strong>software</strong> <a href="#software"><code>Software</code></a></p>
+<ul>
+<li>Software used to author this.</li>
+</ul>
+<p><strong>reason</strong> <code>string</code></p>
+<ul>
+<li>Explanation why changes were made.</li>
+</ul>
+<p><strong>comment</strong> <code>string</code></p>
+<ul>
+<li>Human-readable comment further explaining the changes.</li>
+</ul>
+<p><strong>diff</strong> <a href="#diff"><code>list[Diff]</code></a></p>
+<ul>
+<li>Machine-readable description of changes made.</li>
+</ul>
+<p><strong>reference</strong> <code>list[string]</code></p>
+<ul>
+<li>ID of the SignableItem that was affected. If none is specified, entire document is covered.</li>
+</ul>
+<hr />
+<h3 id="template">Template<a class="headerlink" href="#template" title="Permanent link">&para;</a></h3>
+<p>Represents a template for an ExperimentStep.</p>
+<p><strong>name</strong>* <code>string</code></p>
+<ul>
+<li>Plain-text name of this item.</li>
+</ul>
+<p><strong>template_id</strong>* <code>string</code></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>source_data_location</strong> <code>string</code></p>
+<ul>
+<li>Points to the original data source. May be a file name, uri, database ID, etc.</li>
+</ul>
+<p><strong>tag_set</strong> <a href="#tagset"><code>TagSet</code></a></p>
+<ul>
+<li>Set of Tag elements.</li>
+</ul>
+<p><strong>technique</strong> <a href="#technique"><code>Technique</code></a></p>
+<ul>
+<li>Reference to Technique Definition used in this Experiment.</li>
+</ul>
+<p><strong>infrastructure</strong> <a href="#infrastructure"><code>Infrastructure</code></a></p>
+<ul>
+<li>Contains references to the context of this Experiment.</li>
+</ul>
+<p><strong>method</strong> <a href="#method"><code>Method</code></a></p>
+<ul>
+<li>Describes how this Experiment was performed.</li>
+</ul>
+<p><strong>result</strong> <a href="#result"><code>list[Result]</code></a></p>
+<ul>
+<li>Container for Data derived from Experiment.</li>
+</ul>
+<hr />
+<h3 id="experimentstep">ExperimentStep<a class="headerlink" href="#experimentstep" title="Permanent link">&para;</a></h3>
+<p>Container that documents a step in an experiment. Use one ExperimentStep per application of a Technique.</p>
+<p><strong>name</strong>* <code>string</code></p>
+<ul>
+<li>Plain-text name of this item.</li>
+</ul>
+<p><strong>experiment_step_id</strong>* <code>string</code></p>
+<ul>
+<li>Unique identifier for this ExperimentStep. Used to point to this step from an ExperimentDataReference.</li>
+</ul>
+<p><strong>template_used</strong> <code>string</code></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>comment</strong> <code>string</code></p>
+<ul>
+<li>Unstructured text comment to further describe the ExperimentStep.</li>
+</ul>
+<p><strong>source_data_location</strong> <code>string</code></p>
+<ul>
+<li>Points to the original data source. May be a file name, uri, database ID, etc.</li>
+</ul>
+<p><strong>tag_set</strong> <a href="#tagset"><code>TagSet</code></a></p>
+<ul>
+<li>Set of Tag elements.</li>
+</ul>
+<p><strong>technique</strong> <a href="#technique"><code>Technique</code></a></p>
+<ul>
+<li>Reference to Technique Definition used in this Experiment.</li>
+</ul>
+<p><strong>infrastructure</strong> <a href="#infrastructure"><code>Infrastructure</code></a></p>
+<ul>
+<li>Contains references to the context of this Experiment.</li>
+</ul>
+<p><strong>method</strong> <a href="#method"><code>Method</code></a></p>
+<ul>
+<li>Describes how this Experiment was performed.</li>
+</ul>
+<p><strong>result</strong> <a href="#result"><code>list[Result]</code></a></p>
+<ul>
+<li>Container for Data derived from Experiment.</li>
+</ul>
+<hr />
+<h3 id="diff">Diff<a class="headerlink" href="#diff" title="Permanent link">&para;</a></h3>
+<p>Machine-readable description of changes made.</p>
+<p><strong>scope</strong>* <code>string</code></p>
+<ul>
+<li>Scope of diff. May be 'element' or 'attribute'.</li>
+</ul>
+<p><strong>changed_item</strong>* <code>string</code></p>
+<ul>
+<li>ID of the SignableItem that was changed</li>
+</ul>
+<p><strong>old_value</strong>* <code>string</code></p>
+<ul>
+<li>No descripiton provided</li>
+</ul>
+<p><strong>new_value</strong>* <code>string</code></p>
+<ul>
+<li>No descripiton provided</li>
+</ul>
+<hr />
+<h3 id="author">Author<a class="headerlink" href="#author" title="Permanent link">&para;</a></h3>
+<p>Information about a person, a device or a piece of software authoring AnIML files.</p>
+<p><strong>user_type</strong>* <code>string</code></p>
+<ul>
+<li>Type of user (human, device, software)</li>
+</ul>
+<p><strong>name</strong>* <code>string</code></p>
+<ul>
+<li>Common name.</li>
+</ul>
+<p><strong>affiliation</strong> <code>string</code></p>
+<ul>
+<li>Organization the Author is affiliated with.</li>
+</ul>
+<p><strong>role</strong> <code>string</code></p>
+<ul>
+<li>Role the Author plays within the organization.</li>
+</ul>
+<p><strong>email</strong> <code>string</code></p>
+<ul>
+<li>RFC822-compliant email address.</li>
+</ul>
+<p><strong>phone</strong> <code>string</code></p>
+<ul>
+<li>Phone number.</li>
+</ul>
+<p><strong>location</strong> <code>string</code></p>
+<ul>
+<li>Location or physical address.</li>
+</ul>
+<hr />
+<h3 id="software">Software<a class="headerlink" href="#software" title="Permanent link">&para;</a></h3>
+<p>Software used to author this.</p>
+<p><strong>name</strong>* <code>string</code></p>
+<ul>
+<li>Common name.</li>
+</ul>
+<p><strong>manufacturer</strong> <code>string</code></p>
+<ul>
+<li>Company name.</li>
+</ul>
+<p><strong>version</strong> <code>string</code></p>
+<ul>
+<li>Version identifier of software release.</li>
+</ul>
+<p><strong>operating_system</strong> <code>string</code></p>
+<ul>
+<li>Operating system the software was running on.</li>
+</ul>
+<hr />
+<h3 id="tagset">TagSet<a class="headerlink" href="#tagset" title="Permanent link">&para;</a></h3>
+<p>Set of Tag elements.</p>
+<p><strong>tag</strong> <a href="#tag"><code>list[Tag]</code></a></p>
+<ul>
+<li>Tag to mark related data items. When a value is given, it may also serve as a reference to an external data system.</li>
+</ul>
+<hr />
+<h3 id="result">Result<a class="headerlink" href="#result" title="Permanent link">&para;</a></h3>
+<p>Container for Data derived from Experiment.</p>
+<p><strong>name</strong>* <code>string</code></p>
+<ul>
+<li>Plain-text name of this item.</li>
+</ul>
+<p><strong>series_set</strong> <a href="#seriesset"><code>SeriesSet</code></a></p>
+<ul>
+<li>Container for n-dimensional Data.</li>
+</ul>
+<p><strong>category</strong> <a href="#category"><code>list[Category]</code></a></p>
+<ul>
+<li>Defines a category of Parameters and SeriesSets. Used to model hierarchies.</li>
+</ul>
+<hr />
+<h3 id="method">Method<a class="headerlink" href="#method" title="Permanent link">&para;</a></h3>
+<p>Describes how this Experiment was performed.</p>
+<p><strong>name</strong> <code>string</code></p>
+<ul>
+<li>Optional method name, as defined in the instrument software.</li>
+</ul>
+<p><strong>author</strong> <a href="#author"><code>Author</code></a></p>
+<ul>
+<li>Information about a person, a device or a piece of software authoring AnIML files.</li>
+</ul>
+<p><strong>device</strong> <a href="#device"><code>Device</code></a></p>
+<ul>
+<li>Device used to perform experiment.</li>
+</ul>
+<p><strong>software</strong> <a href="#software"><code>Software</code></a></p>
+<ul>
+<li>Software used to author this.</li>
+</ul>
+<p><strong>category</strong> <a href="#category"><code>list[Category]</code></a></p>
+<ul>
+<li>Defines a category of Parameters and SeriesSets. Used to model hierarchies.</li>
+</ul>
+<hr />
+<h3 id="technique">Technique<a class="headerlink" href="#technique" title="Permanent link">&para;</a></h3>
+<p>Reference to Technique Definition used in this Experiment.</p>
+<p><strong>name</strong>* <code>string</code></p>
+<ul>
+<li>Plain-text name of this item.</li>
+</ul>
+<p><strong>uri</strong>* <code>string</code></p>
+<ul>
+<li>URI where Technique Definition file can be fetched.</li>
+</ul>
+<p><strong>sha256</strong> <code>string</code></p>
+<ul>
+<li>SHA256 checksum of the referenced Technique Definition. Hex encoded, lower cased. Similar to the output of the sha256 unix command.</li>
+</ul>
+<p><strong>extension</strong> <a href="#extension"><code>list[Extension]</code></a></p>
+<ul>
+<li>Reference to an Extension to amend the active Technique Definition.</li>
+</ul>
+<hr />
+<h3 id="infrastructure">Infrastructure<a class="headerlink" href="#infrastructure" title="Permanent link">&para;</a></h3>
+<p>Contains references to the context of this Experiment.</p>
+<p><strong>sample_reference_set</strong> <a href="#samplereferenceset"><code>SampleReferenceSet</code></a></p>
+<ul>
+<li>Set of Samples used in this Experiment.</li>
+</ul>
+<p><strong>parent_data_point_reference_set</strong> <a href="#parentdatapointreferenceset"><code>ParentDataPointReferenceSet</code></a></p>
+<ul>
+<li>Contains references to the parent Result.</li>
+</ul>
+<p><strong>experiment_data_reference_set</strong> <a href="#experimentdatareferenceset"><code>ExperimentDataReferenceSet</code></a></p>
+<ul>
+<li>Set of Experiment Steps consumed by this Experiment Step.</li>
+</ul>
+<p><strong>timestamp</strong> <code>string</code></p>
+<ul>
+<li>Date and time of modification.</li>
+</ul>
+<hr />
+<h3 id="tag">Tag<a class="headerlink" href="#tag" title="Permanent link">&para;</a></h3>
+<p>Tag to mark related data items. When a value is given, it may also serve as a reference to an external data system.</p>
+<p><strong>name</strong>* <code>string</code></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>value</strong> <code>string</code></p>
+<ul>
+<li>None</li>
+</ul>
+<hr />
+<h3 id="category">Category<a class="headerlink" href="#category" title="Permanent link">&para;</a></h3>
+<p>Defines a category of Parameters and SeriesSets. Used to model hierarchies.</p>
+<p><strong>name</strong>* <code>string</code></p>
+<ul>
+<li>Plain-text name of this item.</li>
+</ul>
+<p><strong>parameter</strong> <a href="#parameter"><code>list[Parameter]</code></a></p>
+<ul>
+<li>Name/Value Pair.</li>
+</ul>
+<p><strong>series_set</strong> <a href="#seriesset"><code>list[SeriesSet]</code></a></p>
+<ul>
+<li>Container for n-dimensional Data.</li>
+</ul>
+<p><strong>category</strong> <a href="#category"><code>list[Category]</code></a></p>
+<ul>
+<li>Defines a category of Parameters and SeriesSets. Used to model hierarchies.</li>
+</ul>
+<hr />
+<h3 id="device">Device<a class="headerlink" href="#device" title="Permanent link">&para;</a></h3>
+<p>Device used to perform experiment.</p>
+<p><strong>name</strong>* <code>string</code></p>
+<ul>
+<li>Common name.</li>
+</ul>
+<p><strong>device_identifier</strong> <code>string</code></p>
+<ul>
+<li>Unique name or identifier of the device.</li>
+</ul>
+<p><strong>manufacturer</strong> <code>string</code></p>
+<ul>
+<li>Company name.</li>
+</ul>
+<p><strong>firmware_version</strong> <code>string</code></p>
+<ul>
+<li>Version identifier of firmware release.</li>
+</ul>
+<p><strong>serial_number</strong> <code>string</code></p>
+<ul>
+<li>Unique serial number of device.</li>
+</ul>
+<hr />
+<h3 id="extension">Extension<a class="headerlink" href="#extension" title="Permanent link">&para;</a></h3>
+<p>Reference to an Extension to amend the active Technique Definition.</p>
+<p><strong>uri</strong>* <code>string</code></p>
+<ul>
+<li>URI where Extension file can be fetched.</li>
+</ul>
+<p><strong>name</strong>* <code>string</code></p>
+<ul>
+<li>Name of Extension to be used. Must match Name given in Extension Definition file.</li>
+</ul>
+<p><strong>sha256</strong> <code>string</code></p>
+<ul>
+<li>SHA256 checksum of the referenced Extension. Hex encoded, lower cased. Similar to the output of the sha256 unix command.</li>
+</ul>
+<hr />
+<h3 id="experimentdatareferenceset">ExperimentDataReferenceSet<a class="headerlink" href="#experimentdatareferenceset" title="Permanent link">&para;</a></h3>
+<p>Set of Experiment Steps consumed by this Experiment Step.</p>
+<p><strong>experiment_data_reference</strong> <a href="#experimentdatareference"><code>list[ExperimentDataReference]</code></a></p>
+<ul>
+<li>Reference to an Experiment Step whose data is consumed.</li>
+</ul>
+<p><strong>experiment_data_bulk_reference</strong> <a href="#experimentdatabulkreference"><code>list[ExperimentDataBulkReference]</code></a></p>
+<ul>
+<li>Prefix-based reference to a set of Experiment Steps whose data are consumed.</li>
+</ul>
+<hr />
+<h3 id="parentdatapointreferenceset">ParentDataPointReferenceSet<a class="headerlink" href="#parentdatapointreferenceset" title="Permanent link">&para;</a></h3>
+<p>Contains references to the parent Result.</p>
+<p><strong>parent_data_point_reference</strong>* <a href="#parentdatapointreference"><code>list[ParentDataPointReference]</code></a></p>
+<ul>
+<li>Reference to a data point or value range in an independent Series in the parent Result.</li>
+</ul>
+<hr />
+<h3 id="samplereferenceset">SampleReferenceSet<a class="headerlink" href="#samplereferenceset" title="Permanent link">&para;</a></h3>
+<p>Set of Samples used in this Experiment.</p>
+<p><strong>sample_reference</strong> <a href="#samplereference"><code>list[SampleReference]</code></a></p>
+<ul>
+<li>Reference to a Sample used in this Experiment.</li>
+</ul>
+<p><strong>sample_inheritance</strong> <a href="#sampleinheritance"><code>list[SampleInheritance]</code></a></p>
+<ul>
+<li>Indicates that a Sample was inherited from the parent ExperimentStep.</li>
+</ul>
+<hr />
+<h3 id="seriesset">SeriesSet<a class="headerlink" href="#seriesset" title="Permanent link">&para;</a></h3>
+<p>Container for n-dimensional Data.</p>
+<p><strong>name</strong>* <code>string</code></p>
+<ul>
+<li>Plain-text name of this item.</li>
+</ul>
+<p><strong>length</strong>* <code>string</code></p>
+<ul>
+<li>Number of data points each Series contains.</li>
+</ul>
+<p><strong>series</strong>* <a href="#series"><code>list[Series]</code></a></p>
+<ul>
+<li>Container for multiple Values.</li>
+</ul>
+<hr />
+<h3 id="parameter">Parameter<a class="headerlink" href="#parameter" title="Permanent link">&para;</a></h3>
+<p>Name/Value Pair.</p>
+<p><strong>name</strong>* <code>string</code></p>
+<ul>
+<li>Plain-text name of this item.</li>
+</ul>
+<p><strong>parameter_type</strong>* <code>string</code></p>
+<ul>
+<li>Data type of this parameter</li>
+</ul>
+<p><strong>value</strong>* <code>integer``float``string``boolean</code></p>
+<ul>
+<li>I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value. S: Individual string value. Boolean: Individual boolean value.</li>
+</ul>
+<p><strong>unit</strong> <a href="#unit"><code>Unit</code></a></p>
+<ul>
+<li>Unit: Definition of a Scientific Unit.</li>
+</ul>
+<hr />
+<h3 id="experimentdatareference">ExperimentDataReference<a class="headerlink" href="#experimentdatareference" title="Permanent link">&para;</a></h3>
+<p>Reference to an Experiment Step whose data is consumed.</p>
+<p><strong>role</strong>* <code>string</code></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>data_purpose</strong>* <code>string</code></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>experiment_step_id</strong>* <code>string</code></p>
+<ul>
+<li>None</li>
+</ul>
+<hr />
+<h3 id="experimentdatabulkreference">ExperimentDataBulkReference<a class="headerlink" href="#experimentdatabulkreference" title="Permanent link">&para;</a></h3>
+<p>Prefix-based reference to a set of Experiment Steps whose data are consumed.</p>
+<p><strong>role</strong>* <code>string</code></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>data_purpose</strong>* <code>string</code></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>experiment_step_id_prefix</strong>* <code>string</code></p>
+<ul>
+<li>None</li>
+</ul>
+<hr />
+<h3 id="parentdatapointreference">ParentDataPointReference<a class="headerlink" href="#parentdatapointreference" title="Permanent link">&para;</a></h3>
+<p>Reference to a data point or value range in an independent Series in the parent Result.</p>
+<p><strong>series_id</strong>* <code>string</code></p>
+<ul>
+<li>Contains the ID of the Series referenced.</li>
+</ul>
+<p><strong>start_value</strong>* <a href="#startvalue"><code>StartValue</code></a></p>
+<ul>
+<li>Lower boundary of an interval or ValueSet.</li>
+</ul>
+<p><strong>end_value</strong> <a href="#endvalue"><code>EndValue</code></a></p>
+<ul>
+<li>Upper boundary of an interval.</li>
+</ul>
+<hr />
+<h3 id="samplereference">SampleReference<a class="headerlink" href="#samplereference" title="Permanent link">&para;</a></h3>
+<p>Reference to a Sample used in this Experiment.</p>
+<p><strong>sample_id</strong>* <code>string</code></p>
+<ul>
+<li>SampleID of the Sample used in the current ExperimentStep. Refers to the sampleID within the SampleSet section of the document.</li>
+</ul>
+<p><strong>role</strong>* <code>string</code></p>
+<ul>
+<li>Role this sample plays within the current ExperimentStep.</li>
+</ul>
+<p><strong>sample_purpose</strong>* <code>string</code></p>
+<ul>
+<li>Specifies whether the referenced sample is produced or consumed by the current ExperimentStep.</li>
+</ul>
+<hr />
+<h3 id="sampleinheritance">SampleInheritance<a class="headerlink" href="#sampleinheritance" title="Permanent link">&para;</a></h3>
+<p>Indicates that a Sample was inherited from the parent ExperimentStep.</p>
+<p><strong>role</strong>* <code>string</code></p>
+<ul>
+<li>Role this sample plays within the current ExperimentStep.</li>
+</ul>
+<p><strong>sample_purpose</strong>* <code>string</code></p>
+<ul>
+<li>Specifies whether the referenced sample is produced or consumed by the current ExperimentStep.</li>
+</ul>
+<hr />
+<h3 id="series">Series<a class="headerlink" href="#series" title="Permanent link">&para;</a></h3>
+<p>Container for multiple Values.</p>
+<p><strong>name</strong>* <code>string</code></p>
+<ul>
+<li>Plain-text name of this item.</li>
+</ul>
+<p><strong>dependency</strong>* <code>string</code></p>
+<ul>
+<li>Specified whether the Series is independent or dependent.</li>
+</ul>
+<p><strong>series_id</strong>* <code>string</code></p>
+<ul>
+<li>Identifies the Series. Used in References from subordinate ExperimentSteps. Unique per SeriesSet.</li>
+</ul>
+<p><strong>series_type</strong>* <code>string</code></p>
+<ul>
+<li>Data type used by all values in this Series.</li>
+</ul>
+<p><strong>visible</strong> <code>string</code></p>
+<ul>
+<li>Specifies whether data in this Series is to be displayed to the user by default.</li>
+</ul>
+<p><strong>plot_scale</strong> <code>string</code></p>
+<ul>
+<li>Specifies whether the data in this Series is typically plotted on a linear or logarithmic scale.</li>
+</ul>
+<p><strong>value_set</strong> <a href="#individualvalueset"><code>IndividualValueSet</code></a><a href="#encodedvalueset"><code>EncodedValueSet</code></a><a href="#autoincrementedvalueset"><code>AutoIncrementedValueSet</code></a></p>
+<ul>
+<li>IndividualValueSet: Multiple Values explicitly specified. EncodedValueSet: Multiple numeric values encoded as a base64 binary string. Uses little-endian byte order. AutoIncrementedValueSet: Multiple values given in form of a start value and an increment.</li>
+</ul>
+<p><strong>unit</strong> <a href="#unit"><code>Unit</code></a></p>
+<ul>
+<li>Definition of a Scientific Unit.</li>
+</ul>
+<hr />
+<h3 id="siunit">SIUnit<a class="headerlink" href="#siunit" title="Permanent link">&para;</a></h3>
+<p>Combination of SI Units used to represent Scientific unit</p>
+<p><strong>factor</strong> <code>string</code></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>exponent</strong> <code>string</code></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>offset</strong> <code>string</code></p>
+<ul>
+<li>None</li>
+</ul>
+<hr />
+<h3 id="endvalue">EndValue<a class="headerlink" href="#endvalue" title="Permanent link">&para;</a></h3>
+<p>Upper boundary of an interval.</p>
+<p><strong>value</strong>* <code>integer``float</code></p>
+<ul>
+<li>I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value.</li>
+</ul>
+<hr />
+<h3 id="individualvalueset">IndividualValueSet<a class="headerlink" href="#individualvalueset" title="Permanent link">&para;</a></h3>
+<p>Multiple Values explicitly specified.</p>
+<p><strong>values</strong>* <code>list[float]``list[integer]``list[string]``list[boolean]</code></p>
+<ul>
+<li>I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value. S: Individual string value. Boolean: Individual boolean value.</li>
+</ul>
+<p><strong>start_index</strong> <code>string</code></p>
+<ul>
+<li>Zero-based index of the first entry in this Value Set. The specification is inclusive.</li>
+</ul>
+<p><strong>end_index</strong> <code>string</code></p>
+<ul>
+<li>Zero-based index of the last entry in this Value Set. The specification is inclusive.</li>
+</ul>
+<hr />
+<h3 id="unit">Unit<a class="headerlink" href="#unit" title="Permanent link">&para;</a></h3>
+<p>Definition of a Scientific Unit.</p>
+<p><strong>label</strong>* <code>string</code></p>
+<ul>
+<li>Defines the visual representation of a particular Unit.</li>
+</ul>
+<p><strong>quantity</strong> <code>string</code></p>
+<ul>
+<li>Quantity the unit can be applied to</li>
+</ul>
+<p><strong>si_unit</strong> <a href="#siunit"><code>list[SIUnit]</code></a></p>
+<ul>
+<li>Combination of SI Units used to represent Scientific unit</li>
+</ul>
+<hr />
+<h3 id="autoincrementedvalueset">AutoIncrementedValueSet<a class="headerlink" href="#autoincrementedvalueset" title="Permanent link">&para;</a></h3>
+<p>Multiple values given in form of a start value and an increment.</p>
+<p><strong>start_value</strong>* <a href="#startvalue"><code>StartValue</code></a></p>
+<ul>
+<li>Lower boundary of an interval or ValueSet.</li>
+</ul>
+<p><strong>increment</strong>* <a href="#increment"><code>Increment</code></a></p>
+<ul>
+<li>Increment value</li>
+</ul>
+<p><strong>start_index</strong> <code>string</code></p>
+<ul>
+<li>Zero-based index of the first entry in this Value Set. The specification is inclusive.</li>
+</ul>
+<p><strong>end_index</strong> <code>string</code></p>
+<ul>
+<li>Zero-based index of the last entry in this Value Set. The specification is inclusive.</li>
+</ul>
+<hr />
+<h3 id="encodedvalueset">EncodedValueSet<a class="headerlink" href="#encodedvalueset" title="Permanent link">&para;</a></h3>
+<p>Multiple numeric values encoded as a base64 binary string. Uses little-endian byte order.</p>
+<p><strong>start_index</strong> <code>string</code></p>
+<ul>
+<li>Zero-based index of the first entry in this Value Set. The specification is inclusive.</li>
+</ul>
+<p><strong>end_index</strong> <code>string</code></p>
+<ul>
+<li>Zero-based index of the last entry in this Value Set. The specification is inclusive.</li>
+</ul>
+<hr />
+<h3 id="startvalue">StartValue<a class="headerlink" href="#startvalue" title="Permanent link">&para;</a></h3>
+<p>Lower boundary of an interval or ValueSet.</p>
+<p><strong>value</strong>* <code>integer``float</code></p>
+<ul>
+<li>I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value.</li>
+</ul>
+<hr />
+<h3 id="increment">Increment<a class="headerlink" href="#increment" title="Permanent link">&para;</a></h3>
+<p>Increment value</p>
+<p><strong>value</strong>* <code>integer``float</code></p>
+<ul>
+<li>I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "navigation.tracking", "toc.follow", "search.suggest", "content.action.edit", "content.code.copy"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>
