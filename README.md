@@ -1,6 +1,6 @@
 # AnIML specifications
 
-This repository implements thr original AnIML XSD specification as [markdown data model](https://github.com/FAIRChemistry/md-models) to make use of code generation tools.
+This repository implements the original AnIML XSD specification as [markdown data model](https://github.com/FAIRChemistry/md-models) to make use of code generation tools.
 
 ## Usage
 
