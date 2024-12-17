@@ -2,13 +2,60 @@
 
 An AnIML file (also called an instance in XML speak) is an XML representation of a piece of analytical data gathered from an instrument. The format of AnIML files is structured based off of a set of rules - a schema file (see 'Core Schema'). The schema dictates the elements (tags) allowed in the file, the data type of the information in the elements, and even (if required) what values are allowed within an element. If an AnIML file is written in accordance with the published schema it is said to be 'a valid instance file'.
 
-## Core Objects
+The AnIML standard was developed to address the need for a universal data format in analytical chemistry and related fields. It provides a flexible yet structured way to store both raw experimental data and associated metadata. The format is designed to capture the complete context of an analytical measurement, including instrument parameters, sample information, measurement conditions, and results.
+
+A key feature of AnIML is its hierarchical organization around ExperimentSteps, which represent distinct analytical procedures or measurements. Each ExperimentStep contains comprehensive information about the technique used, method parameters, and resulting data. This structure allows AnIML to effectively document complex analytical workflows involving multiple techniques and instruments.
+
+The standard also includes robust support for data provenance through its AuditTrail system, which tracks all modifications made to an AnIML document. This ensures full traceability of the data lifecycle, from initial acquisition through any subsequent processing or analysis steps. Additionally, AnIML's Template system enables standardization of common experimental procedures while maintaining the flexibility to accommodate diverse analytical techniques.
+
+- [Analytical Information Markup Language](#analytical-information-markup-language)
+    - [AnIML](#animl)
+    - [SampleSet](#sampleset)
+    - [AuditTrailEntrySet](#audittrailentryset)
+    - [ExperimentStepSet](#experimentstepset)
+    - [Sample](#sample)
+    - [AuditTrailEntry](#audittrailentry)
+    - [Template](#template)
+    - [ExperimentStep](#experimentstep)
+    - [Diff](#diff)
+    - [Author](#author)
+    - [Software](#software)
+    - [TagSet](#tagset)
+    - [Result](#result)
+    - [Method](#method)
+    - [Technique](#technique)
+    - [Infrastructure](#infrastructure)
+    - [Tag](#tag)
+    - [Category](#category)
+    - [Device](#device)
+    - [Extension](#extension)
+    - [ExperimentDataReferenceSet](#experimentdatareferenceset)
+    - [ParentDataPointReferenceSet](#parentdatapointreferenceset)
+    - [SampleReferenceSet](#samplereferenceset)
+    - [SeriesSet](#seriesset)
+    - [Parameter](#parameter)
+    - [ExperimentDataReference](#experimentdatareference)
+    - [ExperimentDataBulkReference](#experimentdatabulkreference)
+    - [ParentDataPointReference](#parentdatapointreference)
+    - [SampleReference](#samplereference)
+    - [SampleInheritance](#sampleinheritance)
+    - [Series](#series)
+    - [SIUnit](#siunit)
+    - [EndValue](#endvalue)
+    - [IndividualValueSet](#individualvalueset)
+    - [Unit](#unit)
+    - [AutoIncrementedValueSet](#autoincrementedvalueset)
+    - [EncodedValueSet](#encodedvalueset)
+    - [StartValue](#startvalue)
+    - [Increment](#increment)
+
+---
 
 ### AnIML
 
-ComplexType for the root element of an AnIML document.
+ComplexType for the root element of an AnIML document. The AnIML element serves as the container for all data and metadata in an analytical data file. It contains version information, sample definitions, experimental data organized in steps, and an audit trail of changes made to the document.
 
-- __version__
+- **version**
   - Type: string
   - Description: Version number of the AnIML Core Schema used in this document. Must be '0.90'.
   - Default: 0.90
@@ -26,50 +73,52 @@ ComplexType for the root element of an AnIML document.
   - Description: Container for audit trail entries describing changes to this document.
   - XML: AuditTrailEntrySet
 
+---
+
 ### SampleSet
 
-Container for Samples used in this AnIML document.
+Container for Samples used in this AnIML document. The SampleSet element acts as a registry of all samples referenced throughout the document, allowing samples to be defined once and referenced multiple times. This centralized approach ensures consistency in sample identification and properties across the entire analytical workflow.
 
 - sample
-  - Type: [Sample](#Sample)
-  - Multiple: True
+  - Type: [Sample](#Sample)[]
   - Description: Individual Sample, referenced from other parts of this AnIML document.
   - XML: Sample
 
 ### AuditTrailEntrySet
 
-Container for audit trail entries describing changes to this document.
+Container for audit trail entries describing changes to this document. The AuditTrailEntrySet maintains a chronological record of all modifications made to the AnIML document, including who made the changes, when they were made, and what specific changes occurred. This provides full traceability and compliance with data integrity requirements.
 
 - audit_trail_entry
-  - Type: [AuditTrailEntry](#AuditTrailEntry)
-  - Multiple: True
+  - Type: [AuditTrailEntry](#AuditTrailEntry)[]
   - Description: Describes a set of changes made to the particular AnIML document by one user at a given time.
   - XML: AuditTrailEntry
 
+---
+
 ### ExperimentStepSet
 
-Container for multiple ExperimentSteps that describe the process and results.
+Container for multiple ExperimentSteps that describe the process and results. The ExperimentStepSet organizes the analytical workflow into discrete steps, where each step represents the application of a specific analytical technique. This structure allows for clear documentation of complex, multi-step analytical procedures while maintaining relationships between steps.
 
 - experiment_step
-  - Type: [ExperimentStep](#ExperimentStep)
-  - Multiple: True
+  - Type: [ExperimentStep](#ExperimentStep)[]
   - Description: Container that documents a step in an experiment. Use one ExperimentStep per application of a Technique.
   - XML: ExperimentStep
 - template
-  - Type: [Template](#Template)
-  - Multiple: True
+  - Type: [Template](#Template)[]
   - Description: Represents a template for an ExperimentStep.
   - XML: Template
 
+---
+
 ### Sample
 
-Individual Sample, referenced from other parts of this AnIML document.
+Individual Sample, referenced from other parts of this AnIML document. The Sample element provides comprehensive documentation of a physical or virtual sample, including its identification, physical location, containment hierarchy, and any relevant metadata. It supports both simple samples and complex container-based sample organizations like well plates.
 
-- __name__
+- **name**
   - Type: string
   - Description: Plain-text name of this item.
   - XML: @name
-- __sample_id__
+- **sample_id**
   - Type: string
   - Description: None
   - XML: @sampleID
@@ -111,19 +160,21 @@ Individual Sample, referenced from other parts of this AnIML document.
   - Description: Defines a category of Parameters and SeriesSets. Used to model hierarchies.
   - XML: Category
 
+---
+
 ### AuditTrailEntry
 
-Describes a set of changes made to the particular AnIML document by one user at a given time.
+Describes a set of changes made to the particular AnIML document by one user at a given time. The AuditTrailEntry element captures the complete context of a document modification event, including who made the change, when it occurred, what software was used, and both human-readable and machine-readable descriptions of the changes. This enables full traceability of document history.
 
-- __timestamp__
-  - Type: datetime
+- **timestamp**
+  - Type: string
   - Description: Date and time of modification.
   - XML: Timestamp
-- __author__
+- **author**
   - Type: [Author](#Author)
   - Description: Information about a person, a device or a piece of software authoring AnIML files.
   - XML: Author
-- __action__
+- **action**
   - Type: string
   - Description: Type of change made (created, modified, ...)
   - XML: Action
@@ -150,15 +201,17 @@ Describes a set of changes made to the particular AnIML document by one user at 
   - Description: ID of the SignableItem that was affected. If none is specified, entire document is covered.
   - XML: Reference
 
+---
+
 ### Template
 
-Represents a template for an ExperimentStep.
+Represents a template for an ExperimentStep. Templates provide a reusable pattern for creating ExperimentSteps with predefined structure and metadata. They help ensure consistency across similar experimental procedures.
 
-- __name__
+- **name**
   - Type: string
   - Description: Plain-text name of this item.
   - XML: @name
-- __template_id__
+- **template_id**
   - Type: string
   - Description: None
   - XML: @templateID
@@ -188,15 +241,17 @@ Represents a template for an ExperimentStep.
   - Description: Container for Data derived from Experiment.
   - XML: Result
 
+---
+
 ### ExperimentStep
 
-Container that documents a step in an experiment. Use one ExperimentStep per application of a Technique.
+Container that documents a step in an experiment. Use one ExperimentStep per application of a Technique. ExperimentSteps are the fundamental building blocks of an AnIML document, capturing the complete context, method, and results of a single experimental procedure or measurement.
 
-- __name__
+- **name**
   - Type: string
   - Description: Plain-text name of this item.
   - XML: @name
-- __experiment_step_id__
+- **experiment_step_id**
   - Type: string
   - Description: Unique identifier for this ExperimentStep. Used to point to this step from an ExperimentDataReference.
   - XML: @experimentStepID
@@ -234,36 +289,40 @@ Container that documents a step in an experiment. Use one ExperimentStep per app
   - Description: Container for Data derived from Experiment.
   - XML: Result
 
+---
+
 ### Diff
 
-Machine-readable description of changes made.
+Machine-readable description of changes made. Diffs provide a detailed record of modifications made to an AnIML document, enabling precise tracking of what was changed, when, and by whom. This supports audit trails and change management requirements.
 
-- __scope__
+- **scope**
   - Type: string
   - Description: Scope of diff. May be 'element' or 'attribute'.
   - XML: @scope
-- __changed_item__
+- **changed_item**
   - Type: string
   - Description: ID of the SignableItem that was changed
   - XML: @changedItem
-- __old_value__
+- **old_value**
   - Type: string
   - Description: No descripiton provided
   - XML: OldValue
-- __new_value__
+- **new_value**
   - Type: string
   - Description: No descripiton provided
   - XML: NewValue
 
+---
+
 ### Author
 
-Information about a person, a device or a piece of software authoring AnIML files.
+Information about a person, a device or a piece of software authoring AnIML files. Authors can be human users, automated systems, or software applications that create or modify AnIML documents. This flexible definition supports both manual and automated workflows while maintaining clear provenance.
 
-- __user_type__
+- **user_type**
   - Type: string
   - Description: Type of user (human, device, software)
   - XML: @userType
-- __name__
+- **name**
   - Type: string
   - Description: Common name.
   - XML: Name
@@ -288,11 +347,13 @@ Information about a person, a device or a piece of software authoring AnIML file
   - Description: Location or physical address.
   - XML: Location
 
+---
+
 ### Software
 
-Software used to author this.
+Software used to author this. This element captures details about software applications involved in creating or modifying AnIML documents, including version information and operating environment details for reproducibility and troubleshooting.
 
-- __name__
+- **name**
   - Type: string
   - Description: Common name.
   - XML: Name
@@ -309,9 +370,11 @@ Software used to author this.
   - Description: Operating system the software was running on.
   - XML: OperatingSystem
 
+---
+
 ### TagSet
 
-Set of Tag elements.
+Set of Tag elements. TagSets provide a flexible mechanism for adding metadata and classifications to AnIML elements. They can be used to group related items, add external references, or implement custom categorization schemes.
 
 - tag
   - Type: [Tag](#Tag)
@@ -319,11 +382,13 @@ Set of Tag elements.
   - Description: Tag to mark related data items. When a value is given, it may also serve as a reference to an external data system.
   - XML: Tag
 
+---
+
 ### Result
 
-Container for Data derived from Experiment.
+Container for Data derived from Experiment. Results store the actual experimental data along with its organization into series and categories. This structured approach allows for clear representation of both simple and complex multidimensional datasets.
 
-- __name__
+- **name**
   - Type: string
   - Description: Plain-text name of this item.
   - XML: @name
@@ -337,9 +402,11 @@ Container for Data derived from Experiment.
   - Description: Defines a category of Parameters and SeriesSets. Used to model hierarchies.
   - XML: Category
 
+---
+
 ### Method
 
-Describes how this Experiment was performed.
+Describes how this Experiment was performed. Methods document the complete experimental procedure, including the people involved, equipment used, and software settings. This comprehensive record ensures experiments can be understood and potentially reproduced.
 
 - name
   - Type: string
@@ -363,15 +430,17 @@ Describes how this Experiment was performed.
   - Description: Defines a category of Parameters and SeriesSets. Used to model hierarchies.
   - XML: Category
 
+---
+
 ### Technique
 
-Reference to Technique Definition used in this Experiment.
+Reference to Technique Definition used in this Experiment. Techniques define the standardized structure and vocabulary for specific types of experimental procedures. This reference system ensures consistent data organization across different implementations of the same technique.
 
-- __name__
+- **name**
   - Type: string
   - Description: Plain-text name of this item.
   - XML: @name
-- __uri__
+- **uri**
   - Type: string
   - Description: URI where Technique Definition file can be fetched.
   - XML: @uri
@@ -385,9 +454,11 @@ Reference to Technique Definition used in this Experiment.
   - Description: Reference to an Extension to amend the active Technique Definition.
   - XML: Extension
 
+---
+
 ### Infrastructure
 
-Contains references to the context of this Experiment.
+Contains references to the context of this Experiment. Infrastructure elements provide the broader experimental context by linking to samples, related experiments, and temporal information. This creates a web of relationships between different experimental components.
 
 - sample_reference_set
   - Type: [SampleReferenceSet](#SampleReferenceSet)
@@ -402,15 +473,17 @@ Contains references to the context of this Experiment.
   - Description: Set of Experiment Steps consumed by this Experiment Step.
   - XML: ExperimentDataReferenceSet
 - timestamp
-  - Type: datetime
+  - Type: string
   - Description: Date and time of modification.
   - XML: Timestamp
 
+---
+
 ### Tag
 
-Tag to mark related data items. When a value is given, it may also serve as a reference to an external data system.
+Tag to mark related data items. When a value is given, it may also serve as a reference to an external data system. Tags provide a flexible way to add metadata, create groupings, or link to external systems while maintaining the structured nature of AnIML documents.
 
-- __name__
+- **name**
   - Type: string
   - Description: None
   - XML: @name
@@ -419,11 +492,13 @@ Tag to mark related data items. When a value is given, it may also serve as a re
   - Description: None
   - XML: @value
 
+---
+
 ### Category
 
-Defines a category of Parameters and SeriesSets. Used to model hierarchies.
+Defines a category of Parameters and SeriesSets. Used to model hierarchies. Categories enable logical grouping and organization of experimental data and parameters, supporting complex data structures while maintaining clear relationships between elements.
 
-- __name__
+- **name**
   - Type: string
   - Description: Plain-text name of this item.
   - XML: @name
@@ -443,11 +518,13 @@ Defines a category of Parameters and SeriesSets. Used to model hierarchies.
   - Description: Defines a category of Parameters and SeriesSets. Used to model hierarchies.
   - XML: Category
 
+---
+
 ### Device
 
-Device used to perform experiment.
+Device used to perform experiment. This element captures detailed information about laboratory instruments and equipment used in experiments, supporting traceability and reproducibility requirements.
 
-- __name__
+- **name**
   - Type: string
   - Description: Common name.
   - XML: Name
@@ -468,15 +545,17 @@ Device used to perform experiment.
   - Description: Unique serial number of device.
   - XML: SerialNumber
 
+---
+
 ### Extension
 
-Reference to an Extension to amend the active Technique Definition.
+Reference to an Extension to amend the active Technique Definition. Extensions allow for customization and enhancement of standard Technique Definitions while maintaining compatibility with the base specification.
 
-- __uri__
+- **uri**
   - Type: string
   - Description: URI where Extension file can be fetched.
   - XML: @uri
-- __name__
+- **name**
   - Type: string
   - Description: Name of Extension to be used. Must match Name given in Extension Definition file.
   - XML: @name
@@ -485,9 +564,11 @@ Reference to an Extension to amend the active Technique Definition.
   - Description: SHA256 checksum of the referenced Extension. Hex encoded, lower cased. Similar to the output of the sha256 unix command.
   - XML: @sha256
 
+---
+
 ### ExperimentDataReferenceSet
 
-Set of Experiment Steps consumed by this Experiment Step.
+Set of Experiment Steps consumed by this Experiment Step. This element manages dependencies between different experimental steps, allowing for complex workflows where the output of one step becomes input for another.
 
 - experiment_data_reference
   - Type: [ExperimentDataReference](#ExperimentDataReference)
@@ -500,19 +581,23 @@ Set of Experiment Steps consumed by this Experiment Step.
   - Description: Prefix-based reference to a set of Experiment Steps whose data are consumed.
   - XML: ExperimentDataBulkReference
 
+---
+
 ### ParentDataPointReferenceSet
 
-Contains references to the parent Result.
+Contains references to the parent Result. This element enables precise linking between related data points across different experimental steps, supporting detailed tracking of data relationships and dependencies.
 
-- __parent_data_point_reference__
+- **parent_data_point_reference**
   - Type: [ParentDataPointReference](#ParentDataPointReference)
   - Multiple: True
   - Description: Reference to a data point or value range in an independent Series in the parent Result.
   - XML: ParentDataPointReference
 
+---
+
 ### SampleReferenceSet
 
-Set of Samples used in this Experiment.
+Set of Samples used in this Experiment. This element manages relationships between experiments and samples, tracking both sample usage and sample transformations throughout experimental workflows.
 
 - sample_reference
   - Type: [SampleReference](#SampleReference)
@@ -525,88 +610,98 @@ Set of Samples used in this Experiment.
   - Description: Indicates that a Sample was inherited from the parent ExperimentStep.
   - XML: SampleInheritance
 
+---
+
 ### SeriesSet
 
-Container for n-dimensional Data.
+Container for n-dimensional Data. SeriesSets organize related data series into logical groups, supporting both simple linear data and complex multi-dimensional datasets while maintaining clear relationships between dependent and independent variables.
 
-- __name__
+- **name**
   - Type: string
   - Description: Plain-text name of this item.
   - XML: @name
-- __length__
+- **length**
   - Type: string
   - Description: Number of data points each Series contains.
   - XML: @length
-- __series__
+- **series**
   - Type: [Series](#Series)
   - Multiple: True
   - Description: Container for multiple Values.
   - XML: Series
 
+---
+
 ### Parameter
 
-Name/Value Pair.
+Name/Value Pair. Parameters store individual data points and experimental settings, supporting multiple data types and optional units for complete scientific documentation.
 
-- __name__
+- **name**
   - Type: string
   - Description: Plain-text name of this item.
   - XML: @name
-- __parameter_type__
+- **parameter_type**
   - Type: string
   - Description: Data type of this parameter
   - XML: @parameterType
-- __value__
-  - Type: int, float, string, bool, datetime, bytes
-  - Description: I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value. S: Individual string value. Boolean: Individual boolean value. DateTime: Individual ISO date/time value. PNG: Base 64 encoded PNG image. EmbeddedXML: Value governed by a different XML Schema. SVG: Value governed by the SVG DTD. Used to represent vector graphic images.
-  - XML: {int: I, float: F, str: S, bool: Boolean, datetime: DateTime, bytes: PNG}
+- **value**
+  - Type: integer, float, string, boolean
+  - Description: I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value. S: Individual string value. Boolean: Individual boolean value.
+  - XML: I, F, S, Boolean
 - unit
   - Type: [Unit](#Unit)
   - Description: Unit: Definition of a Scientific Unit.
   - XML: Unit: Unit
 
+---
+
 ### ExperimentDataReference
 
-Reference to an Experiment Step whose data is consumed.
+Reference to an Experiment Step whose data is consumed. This element creates explicit links between experimental steps, documenting how data flows through multi-step experimental procedures.
 
-- __role__
+- **role**
   - Type: string
   - Description: None
   - XML: @role
-- __data_purpose__
+- **data_purpose**
   - Type: string
   - Description: None
   - XML: @dataPurpose
-- __experiment_step_id__
+- **experiment_step_id**
   - Type: string
   - Description: None
   - XML: @experimentStepID
 
+---
+
 ### ExperimentDataBulkReference
 
-Prefix-based reference to a set of Experiment Steps whose data are consumed.
+Prefix-based reference to a set of Experiment Steps whose data are consumed. This element enables efficient referencing of multiple related experimental steps through pattern matching.
 
-- __role__
+- **role**
   - Type: string
   - Description: None
   - XML: @role
-- __data_purpose__
+- **data_purpose**
   - Type: string
   - Description: None
   - XML: @dataPurpose
-- __experiment_step_id_prefix__
+- **experiment_step_id_prefix**
   - Type: string
   - Description: None
   - XML: @experimentStepIDPrefix
 
+---
+
 ### ParentDataPointReference
 
-Reference to a data point or value range in an independent Series in the parent Result.
+Reference to a data point or value range in an independent Series in the parent Result. This element enables precise linking between specific data points across different experimental steps.
 
-- __series_id__
+- **series_id**
   - Type: string
   - Description: Contains the ID of the Series referenced.
   - XML: @seriesID
-- __start_value__
+- **start_value**
   - Type: [StartValue](#StartValue)
   - Description: Lower boundary of an interval or ValueSet.
   - XML: StartValue
@@ -615,53 +710,59 @@ Reference to a data point or value range in an independent Series in the parent 
   - Description: Upper boundary of an interval.
   - XML: EndValue
 
+---
+
 ### SampleReference
 
-Reference to a Sample used in this Experiment.
+Reference to a Sample used in this Experiment. This element creates explicit links between experiments and samples, documenting how samples are used or transformed during experimental procedures.
 
-- __sample_id__
+- **sample_id**
   - Type: string
   - Description: SampleID of the Sample used in the current ExperimentStep. Refers to the sampleID within the SampleSet section of the document.
   - XML: @sampleID
-- __role__
+- **role**
   - Type: string
   - Description: Role this sample plays within the current ExperimentStep.
   - XML: @role
-- __sample_purpose__
+- **sample_purpose**
   - Type: string
   - Description: Specifies whether the referenced sample is produced or consumed by the current ExperimentStep.
   - XML: @samplePurpose
+
+---
 
 ### SampleInheritance
 
-Indicates that a Sample was inherited from the parent ExperimentStep.
+Indicates that a Sample was inherited from the parent ExperimentStep. This element supports tracking sample lineage through multi-step experimental procedures.
 
-- __role__
+- **role**
   - Type: string
   - Description: Role this sample plays within the current ExperimentStep.
   - XML: @role
-- __sample_purpose__
+- **sample_purpose**
   - Type: string
   - Description: Specifies whether the referenced sample is produced or consumed by the current ExperimentStep.
   - XML: @samplePurpose
 
+---
+
 ### Series
 
-Container for multiple Values.
+Container for multiple Values. Series elements store ordered collections of data points, supporting multiple data types and optional units while maintaining relationships between dependent and independent variables.
 
-- __name__
+- **name**
   - Type: string
   - Description: Plain-text name of this item.
   - XML: @name
-- __dependency__
+- **dependency**
   - Type: string
   - Description: Specified whether the Series is independent or dependent.
   - XML: @dependency
-- __series_id__
+- **series_id**
   - Type: string
   - Description: Identifies the Series. Used in References from subordinate ExperimentSteps. Unique per SeriesSet.
   - XML: @seriesID
-- __series_type__
+- **series_type**
   - Type: string
   - Description: Data type used by all values in this Series.
   - XML: @seriesType
@@ -676,15 +777,17 @@ Container for multiple Values.
 - value_set
   - Type: IndividualValueSet, EncodedValueSet, AutoIncrementedValueSet
   - Description: IndividualValueSet: Multiple Values explicitly specified. EncodedValueSet: Multiple numeric values encoded as a base64 binary string. Uses little-endian byte order. AutoIncrementedValueSet: Multiple values given in form of a start value and an increment.
-  - XML: {IndividualValueSet: IndividualValueSet, EncodedValueSet: EncodedValueSet, AutoIncrementedValueSet: AutoIncrementedValueSet}
+  - XML: IndividualValueSet, EncodedValueSet, AutoIncrementedValueSet
 - unit
   - Type: [Unit](#Unit)
   - Description: Definition of a Scientific Unit.
   - XML: Unit
 
+---
+
 ### SIUnit
 
-Combination of SI Units used to represent Scientific unit
+Combination of SI Units used to represent Scientific unit. This element enables precise specification of complex scientific units through combinations of base SI units.
 
 - factor
   - Type: string
@@ -699,24 +802,28 @@ Combination of SI Units used to represent Scientific unit
   - Description: None
   - XML: @offset
 
+---
+
 ### EndValue
 
-Upper boundary of an interval.
+Upper boundary of an interval. This element works with StartValue to define precise numeric ranges for data selection and reference.
 
-- __value__
-  - Type: int, float
+- **value**
+  - Type: integer, float
   - Description: I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value.
-  - XML: {int: I, float: F}
+  - XML: I, F
+
+---
 
 ### IndividualValueSet
 
-Multiple Values explicitly specified.
+Multiple Values explicitly specified. This element provides direct storage of data values, supporting multiple data types for maximum flexibility.
 
-- __values__
-  - Type: float, int, string, bool, datetime, bytes
+- **values**
+  - Type: float, integer, string, boolean
   - Multiple: True
-  - Description: I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value. S: Individual string value. Boolean: Individual boolean value. DateTime: Individual ISO date/time value. PNG: Base 64 encoded PNG image. EmbeddedXML: Value governed by a different XML Schema. SVG: Value governed by the SVG DTD. Used to represent vector graphic images.
-  - XML: {int: I, float: F, str: S, bool: Boolean, datetime: DateTime, bytes: PNG}
+  - Description: I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value. S: Individual string value. Boolean: Individual boolean value.
+  - XML: I, F, S, Boolean
 - start_index
   - Type: string
   - Description: Zero-based index of the first entry in this Value Set. The specification is inclusive.
@@ -726,11 +833,13 @@ Multiple Values explicitly specified.
   - Description: Zero-based index of the last entry in this Value Set. The specification is inclusive.
   - XML: @endIndex
 
+---
+
 ### Unit
 
-Definition of a Scientific Unit.
+Definition of a Scientific Unit. This element provides a structured way to specify scientific units, supporting both simple units and complex combinations of SI units.
 
-- __label__
+- **label**
   - Type: string
   - Description: Defines the visual representation of a particular Unit.
   - XML: @label
@@ -744,15 +853,17 @@ Definition of a Scientific Unit.
   - Description: Combination of SI Units used to represent Scientific unit
   - XML: SIUnit
 
+---
+
 ### AutoIncrementedValueSet
 
-Multiple values given in form of a start value and an increment.
+Multiple values given in form of a start value and an increment. This element provides an efficient way to represent regular sequences of numeric values without storing each individual value.
 
-- __start_value__
+- **start_value**
   - Type: [StartValue](#StartValue)
   - Description: Lower boundary of an interval or ValueSet.
   - XML: StartValue
-- __increment__
+- **increment**
   - Type: [Increment](#Increment)
   - Description: Increment value
   - XML: Increment
@@ -765,9 +876,11 @@ Multiple values given in form of a start value and an increment.
   - Description: Zero-based index of the last entry in this Value Set. The specification is inclusive.
   - XML: @endIndex
 
+---
+
 ### EncodedValueSet
 
-Multiple numeric values encoded as a base64 binary string. Uses little-endian byte order.
+Multiple numeric values encoded as a base64 binary string. Uses little-endian byte order. This element provides efficient storage of large numeric datasets through binary encoding.
 
 - start_index
   - Type: string
@@ -778,21 +891,24 @@ Multiple numeric values encoded as a base64 binary string. Uses little-endian by
   - Description: Zero-based index of the last entry in this Value Set. The specification is inclusive.
   - XML: @endIndex
 
+---
+
 ### StartValue
 
-Lower boundary of an interval or ValueSet.
+Lower boundary of an interval or ValueSet. This element works with EndValue to define precise numeric ranges for data selection and reference.
 
-- __value__
-  - Type: int, float
+- **value**
+  - Type: integer, float
   - Description: I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value.
-  - XML: {int: I, float: F}
+  - XML: I, F
+
+---
 
 ### Increment
 
-Increment value
+Increment value. This element specifies the step size for AutoIncrementedValueSets, enabling efficient representation of regular numeric sequences.
 
-- __value__
-  - Type: int, float
+- **value**
+  - Type: integer, float
   - Description: I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value.
-  - XML: {int: I, float: F}
- 
+  - XML: I, F
