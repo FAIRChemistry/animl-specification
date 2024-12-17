@@ -1,0 +1,1311 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AnIML",
+  "type": "object",
+  "description": "ComplexType for the root element of an AnIML document. The AnIML element serves as the container for all data and metadata in an analytical data file. It contains version information, sample definitions, experimental data organized in steps, and an audit trail of changes made to the document.",
+  "properties": {
+    "audit_trail_entry_set": {
+      "title": "audit_trail_entry_set",
+      "type": "object",
+      "description": "Container for audit trail entries describing changes to this document.",
+      "$ref": "#/$defs/AuditTrailEntrySet"
+    },
+    "experiment_step_set": {
+      "title": "experiment_step_set",
+      "type": "object",
+      "description": "Container for multiple ExperimentSteps that describe the process and results.",
+      "$ref": "#/$defs/ExperimentStepSet"
+    },
+    "sample_set": {
+      "title": "sample_set",
+      "type": "object",
+      "description": "Container for Samples used in this AnIML document.",
+      "$ref": "#/$defs/SampleSet"
+    },
+    "version": {
+      "title": "version",
+      "type": "string",
+      "description": "Version number of the AnIML Core Schema used in this document. Must be '0.90'."
+    }
+  },
+  "$defs": {
+    "AuditTrailEntry": {
+      "title": "AuditTrailEntry",
+      "type": "object",
+      "description": "Describes a set of changes made to the particular AnIML document by one user at a given time. The AuditTrailEntry element captures the complete context of a document modification event, including who made the change, when it occurred, what software was used, and both human-readable and machine-readable descriptions of the changes. This enables full traceability of document history.",
+      "properties": {
+        "action": {
+          "title": "action",
+          "type": "string",
+          "description": "Type of change made (created, modified, ...)"
+        },
+        "author": {
+          "title": "author",
+          "type": "object",
+          "description": "Information about a person, a device or a piece of software authoring AnIML files.",
+          "$ref": "#/$defs/Author"
+        },
+        "comment": {
+          "title": "comment",
+          "type": "string",
+          "description": "Human-readable comment further explaining the changes."
+        },
+        "diff": {
+          "title": "diff",
+          "type": "array",
+          "description": "Machine-readable description of changes made.",
+          "items": {
+            "$ref": "#/$defs/Diff"
+          }
+        },
+        "reason": {
+          "title": "reason",
+          "type": "string",
+          "description": "Explanation why changes were made."
+        },
+        "reference": {
+          "title": "reference",
+          "type": "array",
+          "description": "ID of the SignableItem that was affected. If none is specified, entire document is covered.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "software": {
+          "title": "software",
+          "type": "object",
+          "description": "Software used to author this.",
+          "$ref": "#/$defs/Software"
+        },
+        "timestamp": {
+          "title": "timestamp",
+          "type": "string",
+          "description": "Date and time of modification."
+        }
+      },
+      "required": [
+        "timestamp",
+        "author",
+        "action"
+      ],
+      "additionalProperties": false
+    },
+    "AuditTrailEntrySet": {
+      "title": "AuditTrailEntrySet",
+      "type": "object",
+      "description": "Container for audit trail entries describing changes to this document. The AuditTrailEntrySet maintains a chronological record of all modifications made to the AnIML document, including who made the changes, when they were made, and what specific changes occurred. This provides full traceability and compliance with data integrity requirements.",
+      "properties": {
+        "audit_trail_entry": {
+          "title": "audit_trail_entry",
+          "type": "array",
+          "description": "Describes a set of changes made to the particular AnIML document by one user at a given time.",
+          "items": {
+            "$ref": "#/$defs/AuditTrailEntry"
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "Author": {
+      "title": "Author",
+      "type": "object",
+      "description": "Information about a person, a device or a piece of software authoring AnIML files. Authors can be human users, automated systems, or software applications that create or modify AnIML documents. This flexible definition supports both manual and automated workflows while maintaining clear provenance.",
+      "properties": {
+        "affiliation": {
+          "title": "affiliation",
+          "type": "string",
+          "description": "Organization the Author is affiliated with."
+        },
+        "email": {
+          "title": "email",
+          "type": "string",
+          "description": "RFC822-compliant email address."
+        },
+        "location": {
+          "title": "location",
+          "type": "string",
+          "description": "Location or physical address."
+        },
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "Common name."
+        },
+        "phone": {
+          "title": "phone",
+          "type": "string",
+          "description": "Phone number."
+        },
+        "role": {
+          "title": "role",
+          "type": "string",
+          "description": "Role the Author plays within the organization."
+        },
+        "user_type": {
+          "title": "user_type",
+          "type": "string",
+          "description": "Type of user (human, device, software)"
+        }
+      },
+      "required": [
+        "user_type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "AutoIncrementedValueSet": {
+      "title": "AutoIncrementedValueSet",
+      "type": "object",
+      "description": "Multiple values given in form of a start value and an increment. This element provides an efficient way to represent regular sequences of numeric values without storing each individual value.",
+      "properties": {
+        "end_index": {
+          "title": "end_index",
+          "type": "string",
+          "description": "Zero-based index of the last entry in this Value Set. The specification is inclusive."
+        },
+        "increment": {
+          "title": "increment",
+          "type": "object",
+          "description": "Increment value",
+          "$ref": "#/$defs/Increment"
+        },
+        "start_index": {
+          "title": "start_index",
+          "type": "string",
+          "description": "Zero-based index of the first entry in this Value Set. The specification is inclusive."
+        },
+        "start_value": {
+          "title": "start_value",
+          "type": "object",
+          "description": "Lower boundary of an interval or ValueSet.",
+          "$ref": "#/$defs/StartValue"
+        }
+      },
+      "required": [
+        "start_value",
+        "increment"
+      ],
+      "additionalProperties": false
+    },
+    "Category": {
+      "title": "Category",
+      "type": "object",
+      "description": "Defines a category of Parameters and SeriesSets. Used to model hierarchies. Categories enable logical grouping and organization of experimental data and parameters, supporting complex data structures while maintaining clear relationships between elements.",
+      "properties": {
+        "category": {
+          "title": "category",
+          "type": "array",
+          "description": "Defines a category of Parameters and SeriesSets. Used to model hierarchies.",
+          "items": {
+            "$ref": "#/$defs/Category"
+          }
+        },
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "Plain-text name of this item."
+        },
+        "parameter": {
+          "title": "parameter",
+          "type": "array",
+          "description": "Name/Value Pair.",
+          "items": {
+            "$ref": "#/$defs/Parameter"
+          }
+        },
+        "series_set": {
+          "title": "series_set",
+          "type": "array",
+          "description": "Container for n-dimensional Data.",
+          "items": {
+            "$ref": "#/$defs/SeriesSet"
+          }
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "Device": {
+      "title": "Device",
+      "type": "object",
+      "description": "Device used to perform experiment. This element captures detailed information about laboratory instruments and equipment used in experiments, supporting traceability and reproducibility requirements.",
+      "properties": {
+        "device_identifier": {
+          "title": "device_identifier",
+          "type": "string",
+          "description": "Unique name or identifier of the device."
+        },
+        "firmware_version": {
+          "title": "firmware_version",
+          "type": "string",
+          "description": "Version identifier of firmware release."
+        },
+        "manufacturer": {
+          "title": "manufacturer",
+          "type": "string",
+          "description": "Company name."
+        },
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "Common name."
+        },
+        "serial_number": {
+          "title": "serial_number",
+          "type": "string",
+          "description": "Unique serial number of device."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "Diff": {
+      "title": "Diff",
+      "type": "object",
+      "description": "Machine-readable description of changes made. Diffs provide a detailed record of modifications made to an AnIML document, enabling precise tracking of what was changed, when, and by whom. This supports audit trails and change management requirements.",
+      "properties": {
+        "changed_item": {
+          "title": "changed_item",
+          "type": "string",
+          "description": "ID of the SignableItem that was changed"
+        },
+        "new_value": {
+          "title": "new_value",
+          "type": "string",
+          "description": "No descripiton provided"
+        },
+        "old_value": {
+          "title": "old_value",
+          "type": "string",
+          "description": "No descripiton provided"
+        },
+        "scope": {
+          "title": "scope",
+          "type": "string",
+          "description": "Scope of diff. May be 'element' or 'attribute'."
+        }
+      },
+      "required": [
+        "scope",
+        "changed_item",
+        "old_value",
+        "new_value"
+      ],
+      "additionalProperties": false
+    },
+    "EncodedValueSet": {
+      "title": "EncodedValueSet",
+      "type": "object",
+      "description": "Multiple numeric values encoded as a base64 binary string. Uses little-endian byte order. This element provides efficient storage of large numeric datasets through binary encoding.",
+      "properties": {
+        "end_index": {
+          "title": "end_index",
+          "type": "string",
+          "description": "Zero-based index of the last entry in this Value Set. The specification is inclusive."
+        },
+        "start_index": {
+          "title": "start_index",
+          "type": "string",
+          "description": "Zero-based index of the first entry in this Value Set. The specification is inclusive."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "EndValue": {
+      "title": "EndValue",
+      "type": "object",
+      "description": "Upper boundary of an interval. This element works with StartValue to define precise numeric ranges for data selection and reference.",
+      "properties": {
+        "value": {
+          "title": "value",
+          "description": "I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "ExperimentDataBulkReference": {
+      "title": "ExperimentDataBulkReference",
+      "type": "object",
+      "description": "Prefix-based reference to a set of Experiment Steps whose data are consumed. This element enables efficient referencing of multiple related experimental steps through pattern matching.",
+      "properties": {
+        "data_purpose": {
+          "title": "data_purpose",
+          "type": "string",
+          "description": "None"
+        },
+        "experiment_step_id_prefix": {
+          "title": "experiment_step_id_prefix",
+          "type": "string",
+          "description": "None"
+        },
+        "role": {
+          "title": "role",
+          "type": "string",
+          "description": "None"
+        }
+      },
+      "required": [
+        "role",
+        "data_purpose",
+        "experiment_step_id_prefix"
+      ],
+      "additionalProperties": false
+    },
+    "ExperimentDataReference": {
+      "title": "ExperimentDataReference",
+      "type": "object",
+      "description": "Reference to an Experiment Step whose data is consumed. This element creates explicit links between experimental steps, documenting how data flows through multi-step experimental procedures.",
+      "properties": {
+        "data_purpose": {
+          "title": "data_purpose",
+          "type": "string",
+          "description": "None"
+        },
+        "experiment_step_id": {
+          "title": "experiment_step_id",
+          "type": "string",
+          "description": "None"
+        },
+        "role": {
+          "title": "role",
+          "type": "string",
+          "description": "None"
+        }
+      },
+      "required": [
+        "role",
+        "data_purpose",
+        "experiment_step_id"
+      ],
+      "additionalProperties": false
+    },
+    "ExperimentDataReferenceSet": {
+      "title": "ExperimentDataReferenceSet",
+      "type": "object",
+      "description": "Set of Experiment Steps consumed by this Experiment Step. This element manages dependencies between different experimental steps, allowing for complex workflows where the output of one step becomes input for another.",
+      "properties": {
+        "experiment_data_bulk_reference": {
+          "title": "experiment_data_bulk_reference",
+          "type": "array",
+          "description": "Prefix-based reference to a set of Experiment Steps whose data are consumed.",
+          "items": {
+            "$ref": "#/$defs/ExperimentDataBulkReference"
+          }
+        },
+        "experiment_data_reference": {
+          "title": "experiment_data_reference",
+          "type": "array",
+          "description": "Reference to an Experiment Step whose data is consumed.",
+          "items": {
+            "$ref": "#/$defs/ExperimentDataReference"
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "ExperimentStep": {
+      "title": "ExperimentStep",
+      "type": "object",
+      "description": "Container that documents a step in an experiment. Use one ExperimentStep per application of a Technique. ExperimentSteps are the fundamental building blocks of an AnIML document, capturing the complete context, method, and results of a single experimental procedure or measurement.",
+      "properties": {
+        "comment": {
+          "title": "comment",
+          "type": "string",
+          "description": "Unstructured text comment to further describe the ExperimentStep."
+        },
+        "experiment_step_id": {
+          "title": "experiment_step_id",
+          "type": "string",
+          "description": "Unique identifier for this ExperimentStep. Used to point to this step from an ExperimentDataReference."
+        },
+        "infrastructure": {
+          "title": "infrastructure",
+          "type": "object",
+          "description": "Contains references to the context of this Experiment.",
+          "$ref": "#/$defs/Infrastructure"
+        },
+        "method": {
+          "title": "method",
+          "type": "object",
+          "description": "Describes how this Experiment was performed.",
+          "$ref": "#/$defs/Method"
+        },
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "Plain-text name of this item."
+        },
+        "result": {
+          "title": "result",
+          "type": "array",
+          "description": "Container for Data derived from Experiment.",
+          "items": {
+            "$ref": "#/$defs/Result"
+          }
+        },
+        "source_data_location": {
+          "title": "source_data_location",
+          "type": "string",
+          "description": "Points to the original data source. May be a file name, uri, database ID, etc."
+        },
+        "tag_set": {
+          "title": "tag_set",
+          "type": "object",
+          "description": "Set of Tag elements.",
+          "$ref": "#/$defs/TagSet"
+        },
+        "technique": {
+          "title": "technique",
+          "type": "object",
+          "description": "Reference to Technique Definition used in this Experiment.",
+          "$ref": "#/$defs/Technique"
+        },
+        "template_used": {
+          "title": "template_used",
+          "type": "string",
+          "description": "None"
+        }
+      },
+      "required": [
+        "name",
+        "experiment_step_id"
+      ],
+      "additionalProperties": false
+    },
+    "ExperimentStepSet": {
+      "title": "ExperimentStepSet",
+      "type": "object",
+      "description": "Container for multiple ExperimentSteps that describe the process and results. The ExperimentStepSet organizes the analytical workflow into discrete steps, where each step represents the application of a specific analytical technique. This structure allows for clear documentation of complex, multi-step analytical procedures while maintaining relationships between steps.",
+      "properties": {
+        "experiment_step": {
+          "title": "experiment_step",
+          "type": "array",
+          "description": "Container that documents a step in an experiment. Use one ExperimentStep per application of a Technique.",
+          "items": {
+            "$ref": "#/$defs/ExperimentStep"
+          }
+        },
+        "template": {
+          "title": "template",
+          "type": "array",
+          "description": "Represents a template for an ExperimentStep.",
+          "items": {
+            "$ref": "#/$defs/Template"
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "Extension": {
+      "title": "Extension",
+      "type": "object",
+      "description": "Reference to an Extension to amend the active Technique Definition. Extensions allow for customization and enhancement of standard Technique Definitions while maintaining compatibility with the base specification.",
+      "properties": {
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "Name of Extension to be used. Must match Name given in Extension Definition file."
+        },
+        "sha256": {
+          "title": "sha256",
+          "type": "string",
+          "description": "SHA256 checksum of the referenced Extension. Hex encoded, lower cased. Similar to the output of the sha256 unix command."
+        },
+        "uri": {
+          "title": "uri",
+          "type": "string",
+          "description": "URI where Extension file can be fetched."
+        }
+      },
+      "required": [
+        "uri",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "Increment": {
+      "title": "Increment",
+      "type": "object",
+      "description": "Increment value. This element specifies the step size for AutoIncrementedValueSets, enabling efficient representation of regular numeric sequences.",
+      "properties": {
+        "value": {
+          "title": "value",
+          "description": "I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "IndividualValueSet": {
+      "title": "IndividualValueSet",
+      "type": "object",
+      "description": "Multiple Values explicitly specified. This element provides direct storage of data values, supporting multiple data types for maximum flexibility.",
+      "properties": {
+        "end_index": {
+          "title": "end_index",
+          "type": "string",
+          "description": "Zero-based index of the last entry in this Value Set. The specification is inclusive."
+        },
+        "start_index": {
+          "title": "start_index",
+          "type": "string",
+          "description": "Zero-based index of the first entry in this Value Set. The specification is inclusive."
+        },
+        "values": {
+          "title": "values",
+          "type": "array",
+          "description": "I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value. S: Individual string value. Boolean: Individual boolean value.",
+          "items": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "Infrastructure": {
+      "title": "Infrastructure",
+      "type": "object",
+      "description": "Contains references to the context of this Experiment. Infrastructure elements provide the broader experimental context by linking to samples, related experiments, and temporal information. This creates a web of relationships between different experimental components.",
+      "properties": {
+        "experiment_data_reference_set": {
+          "title": "experiment_data_reference_set",
+          "type": "object",
+          "description": "Set of Experiment Steps consumed by this Experiment Step.",
+          "$ref": "#/$defs/ExperimentDataReferenceSet"
+        },
+        "parent_data_point_reference_set": {
+          "title": "parent_data_point_reference_set",
+          "type": "object",
+          "description": "Contains references to the parent Result.",
+          "$ref": "#/$defs/ParentDataPointReferenceSet"
+        },
+        "sample_reference_set": {
+          "title": "sample_reference_set",
+          "type": "object",
+          "description": "Set of Samples used in this Experiment.",
+          "$ref": "#/$defs/SampleReferenceSet"
+        },
+        "timestamp": {
+          "title": "timestamp",
+          "type": "string",
+          "description": "Date and time of modification."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "Method": {
+      "title": "Method",
+      "type": "object",
+      "description": "Describes how this Experiment was performed. Methods document the complete experimental procedure, including the people involved, equipment used, and software settings. This comprehensive record ensures experiments can be understood and potentially reproduced.",
+      "properties": {
+        "author": {
+          "title": "author",
+          "type": "object",
+          "description": "Information about a person, a device or a piece of software authoring AnIML files.",
+          "$ref": "#/$defs/Author"
+        },
+        "category": {
+          "title": "category",
+          "type": "array",
+          "description": "Defines a category of Parameters and SeriesSets. Used to model hierarchies.",
+          "items": {
+            "$ref": "#/$defs/Category"
+          }
+        },
+        "device": {
+          "title": "device",
+          "type": "object",
+          "description": "Device used to perform experiment.",
+          "$ref": "#/$defs/Device"
+        },
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "Optional method name, as defined in the instrument software."
+        },
+        "software": {
+          "title": "software",
+          "type": "object",
+          "description": "Software used to author this.",
+          "$ref": "#/$defs/Software"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "Parameter": {
+      "title": "Parameter",
+      "type": "object",
+      "description": "Name/Value Pair. Parameters store individual data points and experimental settings, supporting multiple data types and optional units for complete scientific documentation.",
+      "properties": {
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "Plain-text name of this item."
+        },
+        "parameter_type": {
+          "title": "parameter_type",
+          "type": "string",
+          "description": "Data type of this parameter"
+        },
+        "unit": {
+          "title": "unit",
+          "type": "object",
+          "description": "Unit: Definition of a Scientific Unit.",
+          "$ref": "#/$defs/Unit"
+        },
+        "value": {
+          "title": "value",
+          "description": "I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value. S: Individual string value. Boolean: Individual boolean value.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "parameter_type",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "ParentDataPointReference": {
+      "title": "ParentDataPointReference",
+      "type": "object",
+      "description": "Reference to a data point or value range in an independent Series in the parent Result. This element enables precise linking between specific data points across different experimental steps.",
+      "properties": {
+        "end_value": {
+          "title": "end_value",
+          "type": "object",
+          "description": "Upper boundary of an interval.",
+          "$ref": "#/$defs/EndValue"
+        },
+        "series_id": {
+          "title": "series_id",
+          "type": "string",
+          "description": "Contains the ID of the Series referenced."
+        },
+        "start_value": {
+          "title": "start_value",
+          "type": "object",
+          "description": "Lower boundary of an interval or ValueSet.",
+          "$ref": "#/$defs/StartValue"
+        }
+      },
+      "required": [
+        "series_id",
+        "start_value"
+      ],
+      "additionalProperties": false
+    },
+    "ParentDataPointReferenceSet": {
+      "title": "ParentDataPointReferenceSet",
+      "type": "object",
+      "description": "Contains references to the parent Result. This element enables precise linking between related data points across different experimental steps, supporting detailed tracking of data relationships and dependencies.",
+      "properties": {
+        "parent_data_point_reference": {
+          "title": "parent_data_point_reference",
+          "type": "array",
+          "description": "Reference to a data point or value range in an independent Series in the parent Result.",
+          "items": {
+            "$ref": "#/$defs/ParentDataPointReference"
+          }
+        }
+      },
+      "required": [
+        "parent_data_point_reference"
+      ],
+      "additionalProperties": false
+    },
+    "Result": {
+      "title": "Result",
+      "type": "object",
+      "description": "Container for Data derived from Experiment. Results store the actual experimental data along with its organization into series and categories. This structured approach allows for clear representation of both simple and complex multidimensional datasets.",
+      "properties": {
+        "category": {
+          "title": "category",
+          "type": "array",
+          "description": "Defines a category of Parameters and SeriesSets. Used to model hierarchies.",
+          "items": {
+            "$ref": "#/$defs/Category"
+          }
+        },
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "Plain-text name of this item."
+        },
+        "series_set": {
+          "title": "series_set",
+          "type": "object",
+          "description": "Container for n-dimensional Data.",
+          "$ref": "#/$defs/SeriesSet"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "SIUnit": {
+      "title": "SIUnit",
+      "type": "object",
+      "description": "Combination of SI Units used to represent Scientific unit. This element enables precise specification of complex scientific units through combinations of base SI units.",
+      "properties": {
+        "exponent": {
+          "title": "exponent",
+          "type": "string",
+          "description": "None"
+        },
+        "factor": {
+          "title": "factor",
+          "type": "string",
+          "description": "None"
+        },
+        "offset": {
+          "title": "offset",
+          "type": "string",
+          "description": "None"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "Sample": {
+      "title": "Sample",
+      "type": "object",
+      "description": "Individual Sample, referenced from other parts of this AnIML document. The Sample element provides comprehensive documentation of a physical or virtual sample, including its identification, physical location, containment hierarchy, and any relevant metadata. It supports both simple samples and complex container-based sample organizations like well plates.",
+      "properties": {
+        "barcode": {
+          "title": "barcode",
+          "type": "string",
+          "description": "Value of barcode label that is attached to sample container."
+        },
+        "category": {
+          "title": "category",
+          "type": "array",
+          "description": "Defines a category of Parameters and SeriesSets. Used to model hierarchies.",
+          "items": {
+            "$ref": "#/$defs/Category"
+          }
+        },
+        "comment": {
+          "title": "comment",
+          "type": "string",
+          "description": "Unstructured text comment to further describe the Sample."
+        },
+        "container_id": {
+          "title": "container_id",
+          "type": "string",
+          "description": "Sample ID of container in which this sample is located."
+        },
+        "container_type": {
+          "title": "container_type",
+          "type": "string",
+          "description": "Whether this sample is also a container for other samples. Set to 'simple' if not."
+        },
+        "derived": {
+          "title": "derived",
+          "type": "string",
+          "description": "Indicates whether this is a derived Sample. A derived Sample is a Sample that has been created by applying a Technique. (Sub-Sampling, Processing, ...)"
+        },
+        "location_in_container": {
+          "title": "location_in_container",
+          "type": "string",
+          "description": "Coordinates of this sample within the enclosing container. In case of microplates or trays, the row is identified by letters and the column is identified by numbers (1-based) while in landscape orientation. Examples: A10 = 1st row, 10th column, Z1 = 26th row, 1st column, AB2 = 28th row, 2nd column."
+        },
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "Plain-text name of this item."
+        },
+        "sample_id": {
+          "title": "sample_id",
+          "type": "string",
+          "description": "None"
+        },
+        "source_data_location": {
+          "title": "source_data_location",
+          "type": "string",
+          "description": "Points to the original data source. May be a file name, uri, database ID, etc."
+        },
+        "tag_set": {
+          "title": "tag_set",
+          "type": "object",
+          "description": "Set of Tag elements.",
+          "$ref": "#/$defs/TagSet"
+        }
+      },
+      "required": [
+        "name",
+        "sample_id"
+      ],
+      "additionalProperties": false
+    },
+    "SampleInheritance": {
+      "title": "SampleInheritance",
+      "type": "object",
+      "description": "Indicates that a Sample was inherited from the parent ExperimentStep. This element supports tracking sample lineage through multi-step experimental procedures.",
+      "properties": {
+        "role": {
+          "title": "role",
+          "type": "string",
+          "description": "Role this sample plays within the current ExperimentStep."
+        },
+        "sample_purpose": {
+          "title": "sample_purpose",
+          "type": "string",
+          "description": "Specifies whether the referenced sample is produced or consumed by the current ExperimentStep."
+        }
+      },
+      "required": [
+        "role",
+        "sample_purpose"
+      ],
+      "additionalProperties": false
+    },
+    "SampleReference": {
+      "title": "SampleReference",
+      "type": "object",
+      "description": "Reference to a Sample used in this Experiment. This element creates explicit links between experiments and samples, documenting how samples are used or transformed during experimental procedures.",
+      "properties": {
+        "role": {
+          "title": "role",
+          "type": "string",
+          "description": "Role this sample plays within the current ExperimentStep."
+        },
+        "sample_id": {
+          "title": "sample_id",
+          "type": "string",
+          "description": "SampleID of the Sample used in the current ExperimentStep. Refers to the sampleID within the SampleSet section of the document."
+        },
+        "sample_purpose": {
+          "title": "sample_purpose",
+          "type": "string",
+          "description": "Specifies whether the referenced sample is produced or consumed by the current ExperimentStep."
+        }
+      },
+      "required": [
+        "sample_id",
+        "role",
+        "sample_purpose"
+      ],
+      "additionalProperties": false
+    },
+    "SampleReferenceSet": {
+      "title": "SampleReferenceSet",
+      "type": "object",
+      "description": "Set of Samples used in this Experiment. This element manages relationships between experiments and samples, tracking both sample usage and sample transformations throughout experimental workflows.",
+      "properties": {
+        "sample_inheritance": {
+          "title": "sample_inheritance",
+          "type": "array",
+          "description": "Indicates that a Sample was inherited from the parent ExperimentStep.",
+          "items": {
+            "$ref": "#/$defs/SampleInheritance"
+          }
+        },
+        "sample_reference": {
+          "title": "sample_reference",
+          "type": "array",
+          "description": "Reference to a Sample used in this Experiment.",
+          "items": {
+            "$ref": "#/$defs/SampleReference"
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "SampleSet": {
+      "title": "SampleSet",
+      "type": "object",
+      "description": "Container for Samples used in this AnIML document. The SampleSet element acts as a registry of all samples referenced throughout the document, allowing samples to be defined once and referenced multiple times. This centralized approach ensures consistency in sample identification and properties across the entire analytical workflow.",
+      "properties": {
+        "sample": {
+          "title": "sample",
+          "type": "array",
+          "description": "Individual Sample, referenced from other parts of this AnIML document.",
+          "items": {
+            "$ref": "#/$defs/Sample"
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "Series": {
+      "title": "Series",
+      "type": "object",
+      "description": "Container for multiple Values. Series elements store ordered collections of data points, supporting multiple data types and optional units while maintaining relationships between dependent and independent variables.",
+      "properties": {
+        "dependency": {
+          "title": "dependency",
+          "type": "string",
+          "description": "Specified whether the Series is independent or dependent."
+        },
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "Plain-text name of this item."
+        },
+        "plot_scale": {
+          "title": "plot_scale",
+          "type": "string",
+          "description": "Specifies whether the data in this Series is typically plotted on a linear or logarithmic scale."
+        },
+        "series_id": {
+          "title": "series_id",
+          "type": "string",
+          "description": "Identifies the Series. Used in References from subordinate ExperimentSteps. Unique per SeriesSet."
+        },
+        "series_type": {
+          "title": "series_type",
+          "type": "string",
+          "description": "Data type used by all values in this Series."
+        },
+        "unit": {
+          "title": "unit",
+          "type": "object",
+          "description": "Definition of a Scientific Unit.",
+          "$ref": "#/$defs/Unit"
+        },
+        "value_set": {
+          "title": "value_set",
+          "description": "IndividualValueSet: Multiple Values explicitly specified. EncodedValueSet: Multiple numeric values encoded as a base64 binary string. Uses little-endian byte order. AutoIncrementedValueSet: Multiple values given in form of a start value and an increment.",
+          "$ref": "#/$defs/IndividualValueSet",
+          "oneOf": [
+            {
+              "$ref": "#/$defs/IndividualValueSet"
+            },
+            {
+              "$ref": "#/$defs/EncodedValueSet"
+            },
+            {
+              "$ref": "#/$defs/AutoIncrementedValueSet"
+            }
+          ]
+        },
+        "visible": {
+          "title": "visible",
+          "type": "string",
+          "description": "Specifies whether data in this Series is to be displayed to the user by default."
+        }
+      },
+      "required": [
+        "name",
+        "dependency",
+        "series_id",
+        "series_type"
+      ],
+      "additionalProperties": false
+    },
+    "SeriesSet": {
+      "title": "SeriesSet",
+      "type": "object",
+      "description": "Container for n-dimensional Data. SeriesSets organize related data series into logical groups, supporting both simple linear data and complex multi-dimensional datasets while maintaining clear relationships between dependent and independent variables.",
+      "properties": {
+        "length": {
+          "title": "length",
+          "type": "string",
+          "description": "Number of data points each Series contains."
+        },
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "Plain-text name of this item."
+        },
+        "series": {
+          "title": "series",
+          "type": "array",
+          "description": "Container for multiple Values.",
+          "items": {
+            "$ref": "#/$defs/Series"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "length",
+        "series"
+      ],
+      "additionalProperties": false
+    },
+    "Software": {
+      "title": "Software",
+      "type": "object",
+      "description": "Software used to author this. This element captures details about software applications involved in creating or modifying AnIML documents, including version information and operating environment details for reproducibility and troubleshooting.",
+      "properties": {
+        "manufacturer": {
+          "title": "manufacturer",
+          "type": "string",
+          "description": "Company name."
+        },
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "Common name."
+        },
+        "operating_system": {
+          "title": "operating_system",
+          "type": "string",
+          "description": "Operating system the software was running on."
+        },
+        "version": {
+          "title": "version",
+          "type": "string",
+          "description": "Version identifier of software release."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "StartValue": {
+      "title": "StartValue",
+      "type": "object",
+      "description": "Lower boundary of an interval or ValueSet. This element works with EndValue to define precise numeric ranges for data selection and reference.",
+      "properties": {
+        "value": {
+          "title": "value",
+          "description": "I: Individual integer value (32 bits, signed). L: Individual long integer value (64 bits, signed). F: Individual 32-bit floating point value. D: Individual 64-bit floating point value.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "Tag": {
+      "title": "Tag",
+      "type": "object",
+      "description": "Tag to mark related data items. When a value is given, it may also serve as a reference to an external data system. Tags provide a flexible way to add metadata, create groupings, or link to external systems while maintaining the structured nature of AnIML documents.",
+      "properties": {
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "None"
+        },
+        "value": {
+          "title": "value",
+          "type": "string",
+          "description": "None"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "TagSet": {
+      "title": "TagSet",
+      "type": "object",
+      "description": "Set of Tag elements. TagSets provide a flexible mechanism for adding metadata and classifications to AnIML elements. They can be used to group related items, add external references, or implement custom categorization schemes.",
+      "properties": {
+        "tag": {
+          "title": "tag",
+          "type": "array",
+          "description": "Tag to mark related data items. When a value is given, it may also serve as a reference to an external data system.",
+          "items": {
+            "$ref": "#/$defs/Tag"
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "Technique": {
+      "title": "Technique",
+      "type": "object",
+      "description": "Reference to Technique Definition used in this Experiment. Techniques define the standardized structure and vocabulary for specific types of experimental procedures. This reference system ensures consistent data organization across different implementations of the same technique.",
+      "properties": {
+        "extension": {
+          "title": "extension",
+          "type": "array",
+          "description": "Reference to an Extension to amend the active Technique Definition.",
+          "items": {
+            "$ref": "#/$defs/Extension"
+          }
+        },
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "Plain-text name of this item."
+        },
+        "sha256": {
+          "title": "sha256",
+          "type": "string",
+          "description": "SHA256 checksum of the referenced Technique Definition. Hex encoded, lower cased. Similar to the output of the sha256 unix command."
+        },
+        "uri": {
+          "title": "uri",
+          "type": "string",
+          "description": "URI where Technique Definition file can be fetched."
+        }
+      },
+      "required": [
+        "name",
+        "uri"
+      ],
+      "additionalProperties": false
+    },
+    "Template": {
+      "title": "Template",
+      "type": "object",
+      "description": "Represents a template for an ExperimentStep. Templates provide a reusable pattern for creating ExperimentSteps with predefined structure and metadata. They help ensure consistency across similar experimental procedures.",
+      "properties": {
+        "infrastructure": {
+          "title": "infrastructure",
+          "type": "object",
+          "description": "Contains references to the context of this Experiment.",
+          "$ref": "#/$defs/Infrastructure"
+        },
+        "method": {
+          "title": "method",
+          "type": "object",
+          "description": "Describes how this Experiment was performed.",
+          "$ref": "#/$defs/Method"
+        },
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "Plain-text name of this item."
+        },
+        "result": {
+          "title": "result",
+          "type": "array",
+          "description": "Container for Data derived from Experiment.",
+          "items": {
+            "$ref": "#/$defs/Result"
+          }
+        },
+        "source_data_location": {
+          "title": "source_data_location",
+          "type": "string",
+          "description": "Points to the original data source. May be a file name, uri, database ID, etc."
+        },
+        "tag_set": {
+          "title": "tag_set",
+          "type": "object",
+          "description": "Set of Tag elements.",
+          "$ref": "#/$defs/TagSet"
+        },
+        "technique": {
+          "title": "technique",
+          "type": "object",
+          "description": "Reference to Technique Definition used in this Experiment.",
+          "$ref": "#/$defs/Technique"
+        },
+        "template_id": {
+          "title": "template_id",
+          "type": "string",
+          "description": "None"
+        }
+      },
+      "required": [
+        "name",
+        "template_id"
+      ],
+      "additionalProperties": false
+    },
+    "Unit": {
+      "title": "Unit",
+      "type": "object",
+      "description": "Definition of a Scientific Unit. This element provides a structured way to specify scientific units, supporting both simple units and complex combinations of SI units.",
+      "properties": {
+        "label": {
+          "title": "label",
+          "type": "string",
+          "description": "Defines the visual representation of a particular Unit."
+        },
+        "quantity": {
+          "title": "quantity",
+          "type": "string",
+          "description": "Quantity the unit can be applied to"
+        },
+        "si_unit": {
+          "title": "si_unit",
+          "type": "array",
+          "description": "Combination of SI Units used to represent Scientific unit",
+          "items": {
+            "$ref": "#/$defs/SIUnit"
+          }
+        }
+      },
+      "required": [
+        "label"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "version"
+  ],
+  "additionalProperties": false
+}
