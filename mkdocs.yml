@@ -35,8 +35,6 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to light mode
-nav:
-  - "Model Reference": model.md
 
 markdown_extensions:
   - attr_list
