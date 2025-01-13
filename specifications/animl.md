@@ -651,7 +651,7 @@ Name/Value Pair. Parameters store individual data points and experimental settin
 - unit
   - Type: [Unit](#Unit)
   - Description: Unit: Definition of a Scientific Unit.
-  - XML: Unit: Unit
+  - XML: Unit
 
 ---
 
